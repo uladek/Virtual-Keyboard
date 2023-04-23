@@ -1,0 +1,57 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #c0c0c0 ;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.centralizer {
+    margin: 20px auto ;
+    /* padding: 0 auto; */
+    /* max-width: 720px; */
+    display: block;
+    align-content: center;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+.centralizer__title {
+/* justify-content: center; */
+margin: 0 auto;
+text-align: center;
+}
+
+.field-textarea {
+    background: #ffffff;
+    /* position: absolute; */
+    /* resize: horizontal; */
+   display: block;
+    height: 200px;
+    border: 1px solid #000000;
+    
+    border-radius: 9px;
+    /* min-width: 87%; */
+   /* width: 720px; */
+    /* width: inherit; */
+    /* width:87%; */
+    /* min-width: ; */
+    max-width: 90%;
+    min-width: 500px;
+
+    padding: 5px;
+    margin: 30px auto;
+    
+}
+
+.keyboard {
+    height: 200px;
+    border: .1px ridge #000000;
+    border-radius: 9px;
+    /* max-width: 90%; */
+  max-width: 720px;
+  /* width:100%; */
+
+    margin: 0 auto;
+    box-shadow: inset 5px 5px 5px 0 #CFCFCF;
+    /* inset 5px 5px 5px 0 rgba(255,255,255,0.5); */
+    /* box-shadow: inset 5px 5px 5px gold; */
+}
