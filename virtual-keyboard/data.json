@@ -1,0 +1,172 @@
+
+[
+    {
+        "code" : "Backquote",
+        "key" : "`",
+        "keyCode" : 192,
+        "nameEn" : "`"
+        
+    },
+    {
+        "code" : "Digit1",
+        "key" : "1",
+        "keyCode" : 49,
+        "nameEn" : "1"
+    },
+    {
+        "code" : "Digit2",
+        "key" : "2",
+        "keyCode" : 50,
+        "nameEn" : "2"
+    },
+    {
+        "code" : "Digit3",
+        "key" : "3",
+        "keyCode" : 51,
+        "nameEn" : "3"
+    },
+    {
+        "code" : "Digit4",
+        "key" : "4",
+        "keyCode" : 52,
+        "nameEn" : "4"
+    },
+    {
+        "code" : "Digit5",
+        "key" : "5",
+        "keyCode" : 53,
+        "nameEn" : "5"
+    },
+    {
+        "code" : "Digit6",
+        "key" : "6",
+        "keyCode" : 54,
+        "nameEn" : "6"
+    },
+    {
+        "code" : "Digit7",
+        "key" : "7",
+        "keyCode" : 55,
+        "nameEn" : "7"
+    },
+    {
+        "code" : "Digit8",
+        "key" : "8",
+        "keyCode" : 56,
+        "nameEn" : "8"
+    },
+    {
+        "code" : "Digit9",
+        "key" : "9",
+        "keyCode" : 57,
+        "nameEn" : "9"
+    },
+    {
+        "code" : "Digit0",
+        "key" : "0",
+        "keyCode" : 48,
+        "nameEn" : "0"
+    },
+    {
+        "code" : "Minis",
+        "key" : "-",
+        "keyCode" : 190,
+        "nameEn" : "-"
+    },
+    {
+        "code" : "Equal",
+        "key" : "=",
+        "keyCode" : 187,
+        "nameEn" : "="
+    },
+    {
+        "code" : "Backspace",
+        "key" : "Backspace",
+        "keyCode" : 8,
+        "nameEn" : "delete"
+    },
+    {
+        "code" : "Tab",
+        "key" : "Tab",
+        "keyCode" : 9,
+        "nameEn" : "tab"
+    },
+    {
+        "code" : "KeyQ",
+        "key" : "q",
+        "keyCode" : 81,
+        "nameEn" : "Q"
+    },
+    {
+        "code" : "KeyW",
+        "key" : "w",
+        "keyCode" : 87,
+        "nameEn" : "W"
+    },
+    {
+        "code" : "KeyE",
+        "key" : "e",
+        "keyCode" : 69,
+        "nameEn" : "E"
+    },
+    {
+        "code" : "KeyR",
+        "key" : "r",
+        "keyCode" : 82,
+        "nameEn" : "R"
+    },
+    {
+        "code" : "KeyT",
+        "key" : "t",
+        "keyCode" : 84,
+        "nameEn" : "T"
+    },
+    {
+        "code" : "KeyY",
+        "key" : "y",
+        "keyCode" : 89,
+        "nameEn" : "Y"
+    },
+    {
+        "code" : "KeyU",
+        "key" : "u",
+        "keyCode" : 85,
+        "nameEn" : "U"
+    },
+    {
+        "code" : "KeyI",
+        "key" : "i",
+        "keyCode" : 73,
+        "nameEn" : "I"
+    },
+    {
+        "code" : "KeyO",
+        "key" : "o",
+        "keyCode" : 79,
+        "nameEn" : "O"
+    },
+    {
+        "code" : "KeyP",
+        "key" : "p",
+        "keyCode" : 80,
+        "nameEn" : "P"
+    },
+    {
+        "code" : "BracketLeft",
+        "key" : "[",
+        "keyCode" : 219,
+        "nameEn" : "["
+    },
+    {
+        "code" : "racketRight",
+        "key" : "]",
+        "keyCode" : 221,
+        "nameEn"  : "]"
+    },
+    {
+        "code" : "Backslash",
+        "key" : "\\",
+        "keyCode"  : 220,
+        "nameEn" : "\\"
+    }
+]
