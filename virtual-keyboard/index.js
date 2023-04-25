@@ -1,3 +1,6 @@
+const allKeys = document.querySelectorAll('.key');
+
+
 const centralizer = document.createElement('div');
 centralizer.className = 'centralizer';
 document.body.append(centralizer);
@@ -30,17 +33,12 @@ const r5 = [17, 18, 91, 32, 93, 18, 37, 38, 40, 39]; // + Fn last 4 стрелк
 // };
 // const arrKeyboard = [];
 document.addEventListener('keydown', (event) => {
-//   console.log(event.key);
   console.log(event.code);
   console.log(event);
-  // arrKeyboard.push(event);
-  // console.log(arrKeyboard);
-// //   row5.push(event.keyCode);
-// //   console.log(row5);
 });
 
 const row0 = document.createElement('div');
-row0.className = 'keyboard__row keyboard__row-0';
+row0.className = 'keyboard__row keyboard__row_0';
 keyboard.append(row0);
 
 // const itemKeys1 = document.querySelectorAll('row-0-key');
@@ -87,7 +85,7 @@ async function getKeys() {
   const rowArr1 = data.slice(15, 28);
   console.log(rowArr1);
   const row1 = document.createElement('div');
-  row1.className = 'keyboard__row keyboard__row-1';
+  row1.className = 'keyboard__row keyboard__row_1';
   keyboard.append(row1);
 
   function getRow1() {
@@ -104,11 +102,127 @@ async function getKeys() {
   row1.append(getRow1());
 
   const tabKey = document.createElement('div');
-  tabKey.className = 'keyboard__key keyboard__key_row0 key  key_plus key_tab';
+  tabKey.className = 'keyboard__key keyboard__key_row1 key  key_plus key_tab';
   tabKey.innerText = data[14].nameEn;
   row1.prepend(tabKey);
 
-  // return data;
+  const rowArr2 = data.slice(29, 40);
+  const row2 = document.createElement('div');
+  row2.className = 'keyboard__row keyboard__row_2';
+  keyboard.append(row2);
+
+  function getRow2() {
+    const fragment = new DocumentFragment();
+    for (let i = 0; i < rowArr2.length; i += 1) {
+      const keyboardKey = document.createElement('div');
+      keyboardKey.className = 'keyboard__key keyboard__key_row2 key';
+      keyboardKey.innerText = rowArr2[i].nameEn;
+      fragment.append(keyboardKey);
+    }
+    return fragment;
+  }
+  row2.append(getRow2());
+
+  const capsLockKey = document.createElement('div');
+  capsLockKey.className = 'keyboard__key keyboard__key_row2 key  key_plus key_capslock';
+  capsLockKey.innerText = data[28].nameEn;
+  row2.prepend(capsLockKey);
+  const enterKey = document.createElement('div');
+  enterKey.className = 'keyboard__key keyboard__key_row2 key  key_plus key_enter';
+  enterKey.innerText = data[40].nameEn;
+  row2.append(enterKey);
+
+  const rowArr3 = data.slice(42, 52);
+  const row3 = document.createElement('div');
+  row3.className = 'keyboard__row keyboard__row_3';
+  keyboard.append(row3);
+  function getRow3() {
+    const fragment = new DocumentFragment();
+    for (let i = 0; i < rowArr3.length; i += 1) {
+      const keyboardKey = document.createElement('div');
+      keyboardKey.className = 'keyboard__key keyboard__key_row3 key';
+      keyboardKey.innerText = rowArr3[i].nameEn;
+      fragment.append(keyboardKey);
+    }
+    return fragment;
+  }
+  row3.append(getRow3());
+
+  const shiftLeftkKey = document.createElement('div');
+  shiftLeftkKey.className = 'keyboard__key keyboard__key_row3 key  key_plus key_shiftleft';
+  shiftLeftkKey.innerText = data[41].nameEn;
+  row3.prepend(shiftLeftkKey);
+  const shiftRightkKey = document.createElement('div');
+  shiftRightkKey.className = 'keyboard__key keyboard__key_row3 key  key_plus key_shiftright';
+  shiftRightkKey.innerText = data[52].nameEn;
+  row3.append(shiftRightkKey);
+
+  // const rowArr4 = data.slice(53, 59);
+  const row4 = document.createElement('div');
+  row4.className = 'keyboard__row keyboard__row_4';
+  keyboard.append(row4);
+
+  const keyControl = document.createElement('div');
+  keyControl.className = 'keyboard__key keyboard__key_row4 key key_plus key_control';
+  keyControl.innerText = data[53].nameEn;
+  row4.append(keyControl);
+
+  const keyOptionLeft = document.createElement('div');
+  keyOptionLeft.className = 'keyboard__key keyboard__key_row4 key key_plus key_option key_optionleft';
+  keyOptionLeft.innerText = data[54].nameEn;
+  row4.append(keyOptionLeft);
+
+  const keyCommandLeft = document.createElement('div');
+  keyCommandLeft.className = 'keyboard__key keyboard__key_row4 key key_plus key_command key_commandleft';
+  keyCommandLeft.innerText = data[55].nameEn;
+  row4.append(keyCommandLeft);
+
+  const keySpace = document.createElement('div');
+  keySpace.className = 'keyboard__key keyboard__key_row4 key key_plus key_space';
+  keySpace.innerText = data[56].nameEn;
+  row4.append(keySpace);
+
+  const keyOptionRight = document.createElement('div');
+  keyOptionRight.className = 'keyboard__key keyboard__key_row4 key key_plus key_command key_commandright';
+  keyOptionRight.innerText = data[57].nameEn;
+  row4.append(keyOptionRight);
+
+  const keyCommandRight = document.createElement('div');
+  keyCommandRight.className = 'keyboard__key keyboard__key_row4 key key_plus key_option key_optionrightt';
+  keyCommandRight.innerText = data[58].nameEn;
+  row4.append(keyCommandRight);
+
+  const keyArrowLeft = document.createElement('div');
+  keyArrowLeft.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowleft';
+  // keyArrowLeft.innerText = data[59].nameEn;
+  row4.append(keyArrowLeft);
+
+  const wrapperUpDown = document.createElement('div');
+  wrapperUpDown.className = 'wrapper-up-down';
+  row4.append(wrapperUpDown);
+
+  const keyArrowUp = document.createElement('div');
+  keyArrowUp.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowup';
+  wrapperUpDown.append(keyArrowUp);
+  const keyArrowDown = document.createElement('div');
+  keyArrowDown.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowdown';
+  wrapperUpDown.append(keyArrowDown);
+
+  const keyArrowRight = document.createElement('div');
+  keyArrowRight.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowright';
+  // keyArrowLeft.innerText = data[59].nameEn;
+  row4.append(keyArrowRight);
+
+  
+  // function getRow4() {
+  //   const fragment = new DocumentFragment();
+  //   for (let i = 0; i < rowArr4.length; i += 1) {
+  //     const keyboardKey = document.createElement('div');
+  //     keyboardKey.className = 'keyboard__key keyboard__key_row4 key key_plus';
+  //     keyboardKey.innerText = rowArr4[i].nameEn;
+  //     fragment.append(keyboardKey);
+  //   }
+  //   return fragment;
+  // }
 }
 getKeys();
-

@@ -41,15 +41,15 @@ body {
 }
 
 .keyboard {
-  height: 250px;
+  height: 240px;
   border: 0.1px solid #000000;
   border-radius: 9px;
   /* max-width: 90%; */
-  max-width: 700px;
+  max-width: 690px;
   /* width:100%; */
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding: 4px 4px 4px 4px;
   margin: 0 auto;
   box-shadow: inset 5px 5px 5px 0 #CFCFCF;
   /* inset 5px 5px 5px 0 rgba(255,255,255,0.5); */
@@ -60,8 +60,12 @@ body {
   margin: 0;
   display: flex;
   flex-direction: row;
-  height: 19%;
+  height: 20%;
   padding: 0;
+}
+
+.keyboard__row_4 {
+  margin-left: 52px;
 }
 
 .key {
@@ -81,7 +85,7 @@ body {
   display: flex;
   height: 16px;
   width: 70px;
-  font-size: 12px;
+  font-size: 10px;
   justify-content: flex-end;
   padding-top: 20px;
   padding-bottom: 7px;
@@ -97,4 +101,78 @@ body {
 .key_tab {
   justify-content: flex-start;
   padding-left: 10px;
+}
+
+.key_capslock {
+  justify-content: flex-start;
+  padding-left: 10px;
+  width: 75px;
+}
+
+.key_enter {
+  justify-content: flex-end;
+  padding-right: 10px;
+  width: 75px;
+}
+
+.key_shiftleft {
+  justify-content: flex-start;
+  padding-left: 10px;
+  width: 99px;
+}
+
+.key_shiftright {
+  justify-content: flex-end;
+  padding-right: 10px;
+  width: 98px;
+}
+
+.key_option,
+.key_control {
+  width: 43px;
+  justify-content: center;
+}
+
+.key_command {
+  width: 55px;
+  justify-content: center;
+}
+
+.key_space {
+  width: 235px;
+}
+
+.key_arrow {
+  padding: 0;
+  width: 43px;
+  height: 21px;
+  align-self: flex-end;
+  margin-bottom: 2px;
+  background-position: center;
+  background-size: 25%;
+  background-repeat: no-repeat;
+}
+
+.key_arrowleft {
+  background-image: url("./assets/svg/left.svg");
+}
+
+.wrapper-up-down {
+  width: 43px;
+  height: 43px;
+  flex-direction: column;
+  margin-top: 2px;
+  margin-right: 4px;
+}
+
+.key_arrowup {
+  background-image: url("./assets/svg/up.svg");
+}
+
+.key_arrowdown {
+  background-image: url("./assets/svg/down.svg");
+}
+
+.key_arrowright {
+  background-image: url("./assets/svg/right.svg");
 }/*# sourceMappingURL=style.css.map */
