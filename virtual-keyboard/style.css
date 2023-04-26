@@ -81,6 +81,10 @@ body {
   line-height: 45px;
 }
 
+.key_active {
+  background: #790604;
+}
+
 .key_plus {
   display: flex;
   height: 16px;

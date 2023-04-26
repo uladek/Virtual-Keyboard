@@ -176,55 +176,55 @@
         "nameEn" : "caps lock"
     },
     {
-        "code" : "keyA",
+        "code" : "KeyA",
         "key" : "a",
         "keyCode" : 65,
-        "nameEn"  : "A"
+        "nameEn" : "A"
     },
     {
-        "code" : "keyS",
+        "code" : "KeyS",
         "key" : "s",
-        "keyCode"  : 83,
+        "keyCode" : 83,
         "nameEn" : "S"
     },
     {
-        "code" : "keyD",
+        "code" : "KeyD",
         "key" : "d",
         "keyCode" : 68,
-        "nameEn"  : "D"
+        "nameEn" : "D"
     },
     {
-        "code" : "keyF",
+        "code" : "KeyF",
         "key" : "f",
         "keyCode"  : 70,
         "nameEn" : "F"
     },
     {
-        "code" : "keyG",
+        "code" : "KeyG",
         "key" : "g",
         "keyCode" : 71,
         "nameEn"  : "G"
     },
     {
-        "code" : "keyH",
+        "code" : "KeyH",
         "key" : "h",
         "keyCode"  : 72,
         "nameEn" : "H"
     },
     {
-        "code" : "keyJ",
+        "code" : "KeyJ",
         "key" : "j",
         "keyCode" : 74,
         "nameEn"  : "J"
     },
     {
-        "code" : "keyK",
+        "code" : "KeyK",
         "key" : "k",
         "keyCode" : 75,
         "nameEn" : "K"
     },
     {
-        "code" : "keyL",
+        "code" : "KeyL",
         "key" : "l",
         "keyCode" : 76,
         "nameEn" : "L"
@@ -251,45 +251,46 @@
         "code" : "ShiftLeft",
         "key" : "Shift",
         "keyCode" : 16,
-        "nameEn" : "shift"
+        "nameEn" : "shift",
+        "location" : 1
     },
     {
-        "code" : "keyZ",
+        "code" : "KeyZ",
         "key" : "z",
         "keyCode" : 90,
         "nameEn"  : "Z"
     },
     {
-        "code" : "keyX",
+        "code" : "KeyX",
         "key" : "x",
         "keyCode" : 88,
         "nameEn"  : "X"
     }, {
-        "code" : "keyC",
+        "code" : "KeyC",
         "key" : "c",
         "keyCode" : 67,
         "nameEn"  : "C"
     },
     {
-        "code" : "keyV",
+        "code" : "KeyV",
         "key" : "v",
         "keyCode" : 86,
         "nameEn"  : "V"
     },
      {
-        "code" : "keyB",
+        "code" : "KeyB",
         "key" : "b",
         "keyCode" : 66,
         "nameEn"  : "B"
     },
     {
-        "code" : "keyN",
+        "code" : "KeyN",
         "key" : "n",
         "keyCode" : 78,
         "nameEn"  : "N"
     },
      {
-        "code" : "keyM",
+        "code" : "KeyM",
         "key" : "m",
         "keyCode" : 77,
         "nameEn"  : "M"
@@ -316,7 +317,8 @@
         "code" : "ShiftRight",
         "key" : "Shift",
         "keyCode" : 16,
-        "nameEn" : "shift"
+        "nameEn" : "shift",
+        "location" : 2
     },
     {
         "code" : "ControlLeft",
@@ -327,8 +329,9 @@
     {
         "code" : "AltLeft",
         "key" : "Alt",
-        "keyCode" : 10,
-        "nameEn" : "option"
+        "keyCode" : 18,
+        "nameEn" : "option",
+        "location" : 1
     },
     {
         "code" : "MetaLeft",
@@ -352,7 +355,8 @@
         "code" : "AltRight",
         "key" : "Alt",
         "keyCode" : 18,
-        "nameEn" : "option"
+        "nameEn" : "option",
+        "location" : 2
     },
     {
         "code" : "ArrowLeft",
@@ -373,7 +377,7 @@
         "nameEn" : " "
     },
     {
-        "code" : "ArrowRightn",
+        "code" : "ArrowRight",
         "key" : "ArrowRight",
         "keyCode" : 39,
         "nameEn" : " "

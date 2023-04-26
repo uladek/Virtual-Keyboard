@@ -16,13 +16,13 @@ centralizer.append(fieldTextarea);
 const keyboard = document.createElement('div');
 keyboard.className = 'keyboard';
 centralizer.append(keyboard);
-const r0git = [27, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123]; // +кнопка питания??
-// const rowArr0 = ['Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'];
-const r1 = [96, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 45, 61, 'Backspace']; // + delete(backspace)
-const r2 = [9, 81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221, 220];
-const r3 = [20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222, 13];
-const r4 = [16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 16];
-const r5 = [17, 18, 91, 32, 93, 18, 37, 38, 40, 39]; // + Fn last 4 стрелки
+// const r0git = [27, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123]; // +кнопка питания??
+// // const rowArr0 = ['Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'];
+// const r1 = [96, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 45, 61, 'Backspace']; // + delete(backspace)
+// const r2 = [9, 81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221, 220];
+// const r3 = [20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222, 13];
+// const r4 = [16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 16];
+// const r5 = [17, 18, 91, 32, 93, 18, 37, 38, 40, 39]; // + Fn last 4 стрелки
 
 // document.onkeypress = (KeyboardEvent) => {
 //   // console.log(event.key);
@@ -32,10 +32,59 @@ const r5 = [17, 18, 91, 32, 93, 18, 37, 38, 40, 39]; // + Fn last 4 стрелк
 //   console.log(KeyboardEvent);
 // };
 // const arrKeyboard = [];
-document.addEventListener('keydown', (event) => {
-  console.log(event.code);
-  console.log(event);
-});
+
+
+
+function clickMore() {
+  // allKeys.addEventListener('click', (event) => {
+  //   // event.target.closest
+  //   // if (event.target.closest('.item_slider')) {
+  //   //   // console.log('yerf')
+  //   //   console.log(event.target.closest('.item_slider'));
+  //   // }
+  //   console.log(event.code);
+  // });
+}
+clickMore();
+
+
+async function btnActive() {
+  const res = await fetch('data.json');
+  const data = await res.json();
+  // console.log(data.length);
+
+  document.addEventListener('keydown', (event) => {
+    console.log(event.code);
+    const btnKeys = document.querySelectorAll('.key');
+    // console.log(ff.length);
+    for (let i = 0; i < btnKeys.length; i += 1) {
+      if (event.code === data[i].code) {
+        console.log(data[i].code);
+        btnKeys[i].classList.add('key_active');
+      }
+    }
+  });
+
+  document.addEventListener('keyup', (event) => {
+    console.log(event.keyCode);
+    const btnKeys = document.querySelectorAll('.key');
+    // console.log(ff.length);
+    for (let i = 0; i < btnKeys.length; i += 1) {
+      if (event.code === data[i].code) {
+        // console.log(data[i].keyCode);
+        btnKeys[i].classList.remove('key_active');
+      }
+    }
+  });
+}
+btnActive();
+
+
+
+// document.addEventListener('keyup', (event) => {
+//   console.log(event.code);
+//   // console.log(event);
+// });
 
 const row0 = document.createElement('div');
 row0.className = 'keyboard__row keyboard__row_0';
@@ -67,6 +116,8 @@ async function getKeys() {
     for (let i = 0; i < rowArr0.length; i += 1) {
       const keyboardKey = document.createElement('div');
       keyboardKey.className = 'keyboard__key keyboard__key_row0 key';
+      keyboardKey.data = rowArr0[i].keyCode;
+      keyboardKey.dataset.keycode = rowArr0[i].keyCode;
       // console.log(rowArr1[i].key);
       keyboardKey.innerText = rowArr0[i].nameEn;
       fragment.append(keyboardKey);
