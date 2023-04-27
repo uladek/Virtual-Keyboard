@@ -35,49 +35,7 @@ centralizer.append(keyboard);
 
 
 
-function clickMore() {
-  // allKeys.addEventListener('click', (event) => {
-  //   // event.target.closest
-  //   // if (event.target.closest('.item_slider')) {
-  //   //   // console.log('yerf')
-  //   //   console.log(event.target.closest('.item_slider'));
-  //   // }
-  //   console.log(event.code);
-  // });
-}
-clickMore();
 
-
-async function btnActive() {
-  const res = await fetch('data.json');
-  const data = await res.json();
-  // console.log(data.length);
-
-  document.addEventListener('keydown', (event) => {
-    console.log(event.code);
-    const btnKeys = document.querySelectorAll('.key');
-    // console.log(ff.length);
-    for (let i = 0; i < btnKeys.length; i += 1) {
-      if (event.code === data[i].code) {
-        console.log(data[i].code);
-        btnKeys[i].classList.add('key_active');
-      }
-    }
-  });
-
-  document.addEventListener('keyup', (event) => {
-    console.log(event.keyCode);
-    const btnKeys = document.querySelectorAll('.key');
-    // console.log(ff.length);
-    for (let i = 0; i < btnKeys.length; i += 1) {
-      if (event.code === data[i].code) {
-        // console.log(data[i].keyCode);
-        btnKeys[i].classList.remove('key_active');
-      }
-    }
-  });
-}
-btnActive();
 
 
 
@@ -144,7 +102,7 @@ async function getKeys() {
     const fragment = new DocumentFragment();
     for (let i = 0; i < rowArr1.length; i += 1) {
       const keyboardKey = document.createElement('div');
-      keyboardKey.className = 'keyboard__key keyboard__key_row1 key';
+      keyboardKey.className = 'keyboard__key keyboard__key_row1 key key_letter';
       keyboardKey.innerText = rowArr1[i].nameEn;
       fragment.append(keyboardKey);
     }
@@ -277,3 +235,51 @@ async function getKeys() {
   // }
 }
 getKeys();
+
+async function btnActive() {
+  const res = await fetch('data.json');
+  const data = await res.json();
+  // console.log(data.length);
+
+  document.addEventListener('keydown', (event) => {
+    console.log(event.code);
+    // console.log(event);
+
+
+    const btnKeys = document.querySelectorAll('.key');
+
+    for (let i = 0; i < btnKeys.length; i += 1) {
+      if (event.code === data[i].code) {
+        if (event.key === 'CapsLock') {
+          btnKeys.forEach((el, index) => {
+            // console.log(index);
+            // el.innerText = data[index].key;
+            el.innerText = (data[index].nameEn).toLowerCase();
+          });
+          btnKeys[i].classList.add('key_active');
+        } else {
+          btnKeys[i].classList.add('key_active');
+        }
+      }
+    }
+  });
+
+  document.addEventListener('keyup', (event) => {
+    console.log(event.code);
+    const btnKeys = document.querySelectorAll('.key');
+    for (let i = 0; i < btnKeys.length; i += 1) {
+      if (event.code === data[i].code) {
+        if (event.key === 'CapsLock') {
+          btnKeys.forEach((el, index) => {
+            el.innerText = data[index].nameEn;
+          });
+          btnKeys[i].classList.remove('key_active');
+        } else {
+          btnKeys[i].classList.remove('key_active');
+        }
+      }
+    }
+  });
+}
+btnActive();
+

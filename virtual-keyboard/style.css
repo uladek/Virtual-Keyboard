@@ -83,6 +83,12 @@ body {
 
 .key_active {
   background: #790604;
+  text-tranform: lowercase;
+}
+
+.letter_lovercase {
+  text-tranform: lowercase;
+  background: #ffffff;
 }
 
 .key_plus {

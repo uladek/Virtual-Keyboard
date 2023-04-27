@@ -4,133 +4,154 @@
         "code" : "Backquote",
         "key" : "`",
         "keyCode" : 192,
-        "nameEn" : "`"
-        
+        "lover" : " ",
+        "nameEn" : "`" 
     },
     {
         "code" : "Digit1",
         "key" : "1",
         "keyCode" : 49,
+        "lover" : "1",
         "nameEn" : "1"
     },
     {
         "code" : "Digit2",
         "key" : "2",
         "keyCode" : 50,
+        "lover" : "2",
         "nameEn" : "2"
     },
     {
         "code" : "Digit3",
         "key" : "3",
         "keyCode" : 51,
+        "lover" : "3",
         "nameEn" : "3"
     },
     {
         "code" : "Digit4",
         "key" : "4",
         "keyCode" : 52,
+        "lover" : "4",
         "nameEn" : "4"
     },
     {
         "code" : "Digit5",
         "key" : "5",
         "keyCode" : 53,
+        "lover" : "5",
         "nameEn" : "5"
     },
     {
         "code" : "Digit6",
         "key" : "6",
         "keyCode" : 54,
+        "lover" : "6",
         "nameEn" : "6"
     },
     {
         "code" : "Digit7",
         "key" : "7",
         "keyCode" : 55,
+        "lover" : "7",
         "nameEn" : "7"
     },
     {
         "code" : "Digit8",
         "key" : "8",
         "keyCode" : 56,
+        "lover" : "8",
         "nameEn" : "8"
     },
     {
         "code" : "Digit9",
         "key" : "9",
         "keyCode" : 57,
+        "lover" : "9",
         "nameEn" : "9"
     },
     {
         "code" : "Digit0",
         "key" : "0",
         "keyCode" : 48,
+        "lover" : "0",
         "nameEn" : "0"
     },
     {
         "code" : "Minis",
         "key" : "-",
         "keyCode" : 189,
+        "lover" : "-",
         "nameEn" : "-"
     },
     {
         "code" : "Equal",
         "key" : "=",
         "keyCode" : 187,
+        "lover" : "=",
         "nameEn" : "="
     },
     {
         "code" : "Backspace",
         "key" : "Backspace",
         "keyCode" : 8,
+        "lover" : "delete",
         "nameEn" : "delete"
     },
     {
         "code" : "Tab",
         "key" : "Tab",
         "keyCode" : 9,
+        "lover" : "tab",
         "nameEn" : "tab"
     },
     {
         "code" : "KeyQ",
         "key" : "q",
         "keyCode" : 81,
+        "lover" : "q",
         "nameEn" : "Q"
     },
     {
         "code" : "KeyW",
         "key" : "w",
         "keyCode" : 87,
+        "lover" : "w",
         "nameEn" : "W"
     },
     {
         "code" : "KeyE",
         "key" : "e",
         "keyCode" : 69,
+        "lover" : "e",
         "nameEn" : "E"
     },
     {
         "code" : "KeyR",
         "key" : "r",
         "keyCode" : 82,
+        "lover" : "r",
         "nameEn" : "R"
     },
     {
         "code" : "KeyT",
         "key" : "t",
         "keyCode" : 84,
+        "lover" : "t",
         "nameEn" : "T"
     },
     {
         "code" : "KeyY",
         "key" : "y",
         "keyCode" : 89,
+        "lover" : "y",
         "nameEn" : "Y"
     },
     {
         "code" : "KeyU",
         "key" : "u",
         "keyCode" : 85,
+        "lover" : "u",
         "nameEn" : "U"
     },
     {
