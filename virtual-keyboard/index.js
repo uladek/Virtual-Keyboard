@@ -9,8 +9,15 @@ titleCentralizer.className = 'centralizer__title';
 titleCentralizer.innerText = 'RSS Virtual Keyboard';
 centralizer.append(titleCentralizer);
 const fieldTextarea = document.createElement('textarea');
+// fieldTextarea.setAttribute('autofocus', 'autofocus');
 fieldTextarea.className = 'field-textarea';
+
 centralizer.append(fieldTextarea);
+
+function setFocus() {
+  document.querySelector('.field-textarea').focus();
+}
+setFocus();
 
 const keyboard = document.createElement('div');
 keyboard.className = 'keyboard';

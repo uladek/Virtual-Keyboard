@@ -41,7 +41,7 @@ text-align: center;
     /* min-width: ; */
     max-width: 90%;
     min-width: 500px;
-
+    box-shadow: 0 0 10px #ffffff;
     padding: 5px;
     margin: 30px auto;
     
@@ -100,9 +100,33 @@ text-align: center;
         cursor: pointer;
 
 }
+@keyframes  btnanimation {
+    0% {
+    background-color: #a90707; 
+    // box-shadow: 0 0 3px #ffffff;
+    }
+    25% {
+    background-color: #7d3333;
+    box-shadow: 0 0 8px #ffffff;
+    }
+    50% {
+        background-color: #8b2525;
+        box-shadow: 0 0 10px #ffffff;
+    }
+    75% {
+        background-color: #9a1616;
+        box-shadow: 0 0 8px #ffffff;
+    }
+    100% {
+    background-color: #a90707;
+    // box-shadow: 0 0 3px #ffffff;
+    }
+    }
 
 .key_active {
-    background: #790604;
+    // background: #790604;
+    animation: btnanimation 3s infinite;
+
     cursor: pointer;
     border-radius: 11px;
     transition: 3s;
