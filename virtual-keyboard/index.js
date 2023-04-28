@@ -1,5 +1,4 @@
-const allKeys = document.querySelectorAll('.key');
-
+// const allKeys = document.querySelectorAll('.key');
 
 const centralizer = document.createElement('div');
 centralizer.className = 'centralizer';
@@ -24,58 +23,22 @@ centralizer.append(keyboard);
 // const r4 = [16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 16];
 // const r5 = [17, 18, 91, 32, 93, 18, 37, 38, 40, 39]; // + Fn last 4 стрелки
 
-// document.onkeypress = (KeyboardEvent) => {
-//   // console.log(event.key);
-//   // console.log(event.code);
-//   // rowS0.push(event.key);
-//   // console.log(rowS0);
-//   console.log(KeyboardEvent);
-// };
-// const arrKeyboard = [];
-
-
-
-
-
-
-
-// document.addEventListener('keyup', (event) => {
-//   console.log(event.code);
-//   // console.log(event);
-// });
-
-const row0 = document.createElement('div');
-row0.className = 'keyboard__row keyboard__row_0';
-keyboard.append(row0);
-
-// const itemKeys1 = document.querySelectorAll('row-0-key');
-// function init() {
-// for (let i = 0; i <= r0.lemgth; i += 1) {
-//   console.log(r0.length);
-//   const keyboardKey = document.createElement('div');
-//   keyboardKey.className = 'key';
-//   row0.append(keyboardKey);
-// }
-// }
-// init();
-
 async function getKeys() {
   const res = await fetch('data.json');
   const data = await res.json();
-  console.log(data.length);
 
-  //  const dataKeys = getKeys();
+  const row0 = document.createElement('div');
+  row0.className = 'keyboard__row keyboard__row_0';
+  keyboard.append(row0);
   const rowArr0 = data.slice(0, 13);
-  // console.log(rowArr1);
 
   function getRow0() {
-  // console.log(data);
     const fragment = new DocumentFragment();
     for (let i = 0; i < rowArr0.length; i += 1) {
       const keyboardKey = document.createElement('div');
       keyboardKey.className = 'keyboard__key keyboard__key_row0 key';
       keyboardKey.data = rowArr0[i].keyCode;
-      keyboardKey.dataset.keycode = rowArr0[i].keyCode;
+      // keyboardKey.dataset.keycode = rowArr0[i].keyCode;
       // console.log(rowArr1[i].key);
       keyboardKey.innerText = rowArr0[i].nameEn;
       fragment.append(keyboardKey);
@@ -92,7 +55,6 @@ async function getKeys() {
   row0.append(deleteKey);
 
   const rowArr1 = data.slice(15, 28);
-  console.log(rowArr1);
   const row1 = document.createElement('div');
   row1.className = 'keyboard__row keyboard__row_1';
   keyboard.append(row1);
@@ -104,6 +66,7 @@ async function getKeys() {
       const keyboardKey = document.createElement('div');
       keyboardKey.className = 'keyboard__key keyboard__key_row1 key key_letter';
       keyboardKey.innerText = rowArr1[i].nameEn;
+      // keyboardKey.style.cursor = 'pointer';
       fragment.append(keyboardKey);
     }
     return fragment;
@@ -221,38 +184,21 @@ async function getKeys() {
   keyArrowRight.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowright';
   // keyArrowLeft.innerText = data[59].nameEn;
   row4.append(keyArrowRight);
-
-  
-  // function getRow4() {
-  //   const fragment = new DocumentFragment();
-  //   for (let i = 0; i < rowArr4.length; i += 1) {
-  //     const keyboardKey = document.createElement('div');
-  //     keyboardKey.className = 'keyboard__key keyboard__key_row4 key key_plus';
-  //     keyboardKey.innerText = rowArr4[i].nameEn;
-  //     fragment.append(keyboardKey);
-  //   }
-  //   return fragment;
-  // }
 }
 getKeys();
 
 async function btnActive() {
   const res = await fetch('data.json');
   const data = await res.json();
-  // console.log(data.length);
 
   document.addEventListener('keydown', (event) => {
     console.log(event.code);
-    // console.log(event);
-
-
     const btnKeys = document.querySelectorAll('.key');
 
     for (let i = 0; i < btnKeys.length; i += 1) {
       if (event.code === data[i].code) {
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
-            // console.log(index);
             // el.innerText = data[index].key;
             el.innerText = (data[index].nameEn).toLowerCase();
           });
@@ -262,6 +208,9 @@ async function btnActive() {
         }
       }
     }
+    // btnKeys.document.addEventListener('mousedown', (e) => {
+    //   console.log(e);
+    // });
   });
 
   document.addEventListener('keyup', (event) => {
@@ -283,3 +232,76 @@ async function btnActive() {
 }
 btnActive();
 
+// const body = document.querySelectorAll('body');
+
+
+async function clickButtons() {
+  const res = await fetch('data.json');
+  const data = await res.json();
+  const capsLock = document.querySelector('.key_capslock');
+  
+  function capsFunction() {
+    capsLock.addEventListener('mousedown', (event) => {
+      const allKeys = document.querySelectorAll('.key');
+      // console.log((capsLock.classList.contains('key_active')));
+      console.log(event.target.innerText === 'caps lock' && (!capsLock.classList.contains('key_active')));
+      console.log(capsLock.classList.contains('key_active'));
+    
+      for (let b = 0; b < allKeys.length; b += 1) {
+      // if (event.target.innerText === 'caps lock') {
+      //   btnClick.classList.add('key_active');
+      // } else {
+
+      if (!allKeys[b].classList.contains('key_active')) {
+        allKeys[b].classList.remove('key_active');
+      }
+      capsLock.classList.toggle('key_active');
+        // allKeys[b].classList.remove('key_active');
+        // }
+        if (event.target.innerText === 'caps lock' && (capsLock.classList.contains('key_active'))) {
+          allKeys.forEach((el, index) => {
+            el.innerText = (data[index].nameEn).toLowerCase();
+            // capsLock.classList.add('key_active');
+          });
+        } else if (!capsLock.classList.contains('key_active')) {
+          allKeys.forEach((el, index) => {
+            console.log('AAA');
+            // capsLock.classList.remove('key_active');
+            el.innerText = (data[index].nameEn);
+          });
+        }
+      }
+    
+    });
+  }
+  capsFunction();
+
+  keyboard.addEventListener('mousedown', (event) => {
+    const btnClick = event.target.closest('.key');
+    const allKeys = document.querySelectorAll('.key');
+    if (event.target.innerText !== 'caps lock') {
+      for (let b = 0; b < allKeys.length; b += 1) {
+        if (!allKeys[b].classList.contains('key_active')) {
+          allKeys[b].classList.remove('key_active');
+        }
+        btnClick.classList.add('key_active');
+      }
+    //   // btnClick.classList.add('key_active');
+    }
+    //  else if (event.target.innerText === 'caps lock') {
+    //   capsFunction();
+    // }
+  });
+
+  keyboard.addEventListener('mouseup', (event) => {
+    const btnClick = event.target.closest('.key');
+    if (event.target.innerText !== 'caps lock') {
+      btnClick.classList.remove('key_active');
+    }
+    // else if (event.target.innerText === 'caps lock') {
+    //   capsFunction();
+    //   // btnClick.classList.toggle('key_active');
+    // }
+  });
+}
+clickButtons();
