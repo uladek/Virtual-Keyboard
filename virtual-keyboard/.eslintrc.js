@@ -7,5 +7,6 @@ module.exports = {
   ],
   rules: {
     'no-console': 'off',
+    'no-param-reassign': 0,
   },
 };

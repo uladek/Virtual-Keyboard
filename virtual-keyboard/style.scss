@@ -103,33 +103,35 @@ text-align: center;
 @keyframes  btnanimation {
     0% {
     background-color: #a90707; 
-    // box-shadow: 0 0 3px #ffffff;
-    }
+    box-shadow: 0 0 1px #ffffff;
+}
     25% {
     background-color: #7d3333;
-    box-shadow: 0 0 8px #ffffff;
-    }
+    box-shadow: 0 0 5px #ffffff;
+}
     50% {
         background-color: #8b2525;
-        box-shadow: 0 0 10px #ffffff;
+        box-shadow: 0 0 30px #ffffff;
     }
     75% {
         background-color: #9a1616;
-        box-shadow: 0 0 8px #ffffff;
+        box-shadow: 0 0 30px #ffffff;
     }
     100% {
     background-color: #a90707;
-    // box-shadow: 0 0 3px #ffffff;
-    }
+    box-shadow: 0 0 10px #ffffff;
+}
     }
 
 .key_active {
-    // background: #790604;
-    animation: btnanimation 3s infinite;
-
+    background: #a90707;
+    animation: btnanimation 2s ease-out;
+    animation-delay: 1s;
+    // animation-duration: 3s; /* Продолжительность анимации */
     cursor: pointer;
-    border-radius: 11px;
-    transition: 3s;
+    border-radius: 12px;
+    transition: .5s;
+    // border: 1px solid #ffffff;
 }
 
 

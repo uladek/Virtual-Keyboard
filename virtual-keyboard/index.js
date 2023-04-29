@@ -9,7 +9,7 @@ titleCentralizer.className = 'centralizer__title';
 titleCentralizer.innerText = 'RSS Virtual Keyboard';
 centralizer.append(titleCentralizer);
 const fieldTextarea = document.createElement('textarea');
-// fieldTextarea.setAttribute('autofocus', 'autofocus');
+fieldTextarea.setAttribute('autofocus', 'autofocus');
 fieldTextarea.className = 'field-textarea';
 
 centralizer.append(fieldTextarea);
@@ -72,7 +72,7 @@ async function getKeys() {
     for (let i = 0; i < rowArr1.length; i += 1) {
       const keyboardKey = document.createElement('div');
       keyboardKey.className = 'keyboard__key keyboard__key_row1 key key_letter';
-      keyboardKey.innerText = rowArr1[i].nameEn;
+      keyboardKey.innerText = rowArr1[i].nameEn.toLowerCase();
       // keyboardKey.style.cursor = 'pointer';
       fragment.append(keyboardKey);
     }
@@ -95,7 +95,7 @@ async function getKeys() {
     for (let i = 0; i < rowArr2.length; i += 1) {
       const keyboardKey = document.createElement('div');
       keyboardKey.className = 'keyboard__key keyboard__key_row2 key';
-      keyboardKey.innerText = rowArr2[i].nameEn;
+      keyboardKey.innerText = rowArr2[i].nameEn.toLowerCase();
       fragment.append(keyboardKey);
     }
     return fragment;
@@ -120,7 +120,7 @@ async function getKeys() {
     for (let i = 0; i < rowArr3.length; i += 1) {
       const keyboardKey = document.createElement('div');
       keyboardKey.className = 'keyboard__key keyboard__key_row3 key';
-      keyboardKey.innerText = rowArr3[i].nameEn;
+      keyboardKey.innerText = rowArr3[i].nameEn.toLowerCase();
       fragment.append(keyboardKey);
     }
     return fragment;
@@ -133,7 +133,7 @@ async function getKeys() {
   row3.prepend(shiftLeftkKey);
   const shiftRightkKey = document.createElement('div');
   shiftRightkKey.className = 'keyboard__key keyboard__key_row3 key  key_plus key_shiftright';
-  shiftRightkKey.innerText = data[52].nameEn;
+  shiftRightkKey.innerText = data[52].nameEn.toLowerCase();
   row3.append(shiftRightkKey);
 
   // const rowArr4 = data.slice(53, 59);
@@ -197,29 +197,48 @@ getKeys();
 async function btnActive() {
   const res = await fetch('data.json');
   const data = await res.json();
-
+ 
   document.addEventListener('keydown', (event) => {
-    console.log(event.code);
-    const btnKeys = document.querySelectorAll('.key');
+    // fieldTextarea.textContent += btnKeys[i].innerText;
 
+    // setFocus();
+    const btnKeys = document.querySelectorAll('.key');
     for (let i = 0; i < btnKeys.length; i += 1) {
+      fieldTextarea.focus();
+      fieldTextarea.selectionStart = fieldTextarea.value.length;
       if (event.code === data[i].code) {
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
-            // el.innerText = data[index].key;
-            el.innerText = (data[index].nameEn).toLowerCase();
+          // el.innerText = data[index].key;
+            el.innerText = (data[index].nameEn);
+            // fieldTextarea.value += el.innerText;
           });
           btnKeys[i].classList.add('key_active');
+        } else if (btnKeys[i].textContent === 'delete') {
+          // console.log(fieldTextarea.textContent);
+          fieldTextarea.value = fieldTextarea.value.slice(0, -1);
+          // (fieldTextarea.value).toString.slice(0, -1);
+        } else if (btnKeys[i].textContent === 'tab') {
+          // fieldTextarea.focus();
+          // fieldTextarea.selectionStart = fieldTextarea.value.length;
+          console.log('TAB');
+          fieldTextarea.value += '\t';
         } else {
+          fieldTextarea.focus();
+          // fieldTextarea.selectionStart = fieldTextarea.value.length;
           btnKeys[i].classList.add('key_active');
+          if (fieldTextarea.textContent.length === 0) {
+            fieldTextarea.value += btnKeys[i].innerText.slice(0, -1);
+          } else {
+            fieldTextarea.value += btnKeys[i].innerText;
+          }
         }
       }
     }
-    // btnKeys.document.addEventListener('mousedown', (e) => {
-    //   console.log(e);
-    // });
   });
 
+
+  // function keyDisActive() {
   document.addEventListener('keyup', (event) => {
     console.log(event.code);
     const btnKeys = document.querySelectorAll('.key');
@@ -227,7 +246,7 @@ async function btnActive() {
       if (event.code === data[i].code) {
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
-            el.innerText = data[index].nameEn;
+            el.innerText = data[index].nameEn.toLowerCase();
           });
           btnKeys[i].classList.remove('key_active');
         } else {
@@ -236,49 +255,45 @@ async function btnActive() {
       }
     }
   });
+// }
+//   keyDisActive();
+  // setInterval(keyDisActive, 1000);
 }
 btnActive();
-
-// const body = document.querySelectorAll('body');
-
 
 async function clickButtons() {
   const res = await fetch('data.json');
   const data = await res.json();
   const capsLock = document.querySelector('.key_capslock');
-  
+
   function capsFunction() {
     capsLock.addEventListener('mousedown', (event) => {
       const allKeys = document.querySelectorAll('.key');
-      // console.log((capsLock.classList.contains('key_active')));
-      console.log(event.target.innerText === 'caps lock' && (!capsLock.classList.contains('key_active')));
-      console.log(capsLock.classList.contains('key_active'));
-    
+      // console.log(event.target.innerText === 'caps lock' && (!capsLock.classList.contains('key_active')));
+      // console.log(capsLock.classList.contains('key_active'));
+
       for (let b = 0; b < allKeys.length; b += 1) {
       // if (event.target.innerText === 'caps lock') {
       //   btnClick.classList.add('key_active');
       // } else {
-
-      if (!allKeys[b].classList.contains('key_active')) {
-        allKeys[b].classList.remove('key_active');
-      }
-      capsLock.classList.toggle('key_active');
+        if (!allKeys[b].classList.contains('key_active')) {
+          allKeys[b].classList.remove('key_active');
+        }
+        capsLock.classList.toggle('key_active');
         // allKeys[b].classList.remove('key_active');
         // }
         if (event.target.innerText === 'caps lock' && (capsLock.classList.contains('key_active'))) {
           allKeys.forEach((el, index) => {
-            el.innerText = (data[index].nameEn).toLowerCase();
+            el.innerText = (data[index].nameEn);
             // capsLock.classList.add('key_active');
           });
         } else if (!capsLock.classList.contains('key_active')) {
           allKeys.forEach((el, index) => {
-            console.log('AAA');
             // capsLock.classList.remove('key_active');
-            el.innerText = (data[index].nameEn);
+            el.innerText = (data[index].nameEn).toLowerCase();
           });
         }
       }
-    
     });
   }
   capsFunction();
@@ -286,6 +301,21 @@ async function clickButtons() {
   keyboard.addEventListener('mousedown', (event) => {
     const btnClick = event.target.closest('.key');
     const allKeys = document.querySelectorAll('.key');
+    // console.log(fieldTextarea.focus());
+    // fieldTextarea.textContent.focus();
+    console.log(btnClick.textContent);
+    fieldTextarea.focus();
+    fieldTextarea.selectionStart = fieldTextarea.value.length;
+    // console.log(fieldTextarea.textContent);
+    // if (event.target.closest('.key_delete')) {
+    if (btnClick.textContent === 'delete') {
+      fieldTextarea.value = fieldTextarea.value.slice(0, -1);
+    } else if (btnClick.textContent === 'tab') {
+      fieldTextarea.value += '\t';
+    } else {
+      fieldTextarea.value += btnClick.innerText;
+    }
+
     if (event.target.innerText !== 'caps lock') {
       for (let b = 0; b < allKeys.length; b += 1) {
         if (!allKeys[b].classList.contains('key_active')) {
