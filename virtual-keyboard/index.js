@@ -197,11 +197,13 @@ getKeys();
 async function btnActive() {
   const res = await fetch('data.json');
   const data = await res.json();
- 
+
   document.addEventListener('keydown', (event) => {
     // fieldTextarea.textContent += btnKeys[i].innerText;
 
-    // setFocus();
+    if (event.key === 'Tab') {
+      event.preventDefault();
+    }
     const btnKeys = document.querySelectorAll('.key');
     for (let i = 0; i < btnKeys.length; i += 1) {
       fieldTextarea.focus();
@@ -216,14 +218,25 @@ async function btnActive() {
           btnKeys[i].classList.add('key_active');
         } else if (btnKeys[i].textContent === 'delete') {
           // console.log(fieldTextarea.textContent);
-          fieldTextarea.value = fieldTextarea.value.slice(0, -1);
+          return fieldTextarea.value.slice(0, -1);
           // (fieldTextarea.value).toString.slice(0, -1);
         } else if (btnKeys[i].textContent === 'tab') {
-          // fieldTextarea.focus();
+          fieldTextarea.focus();
           // fieldTextarea.selectionStart = fieldTextarea.value.length;
-          console.log('TAB');
           fieldTextarea.value += '\t';
+          if (!fieldTextarea.focus()) {
+            console.log('BBBBB');
+            // event.preventDefault();
+            fieldTextarea.focus();
+          }
+        } else if (btnKeys[i].textContent === 'return') {
+        // fieldTextarea.focus();
+        // fieldTextarea.selectionStart = fieldTextarea.value.length;
+          // setFocus();
+          return fieldTextarea.value;
         } else {
+          console.log(btnKeys[i].textContent);
+
           fieldTextarea.focus();
           // fieldTextarea.selectionStart = fieldTextarea.value.length;
           btnKeys[i].classList.add('key_active');
@@ -235,12 +248,17 @@ async function btnActive() {
         }
       }
     }
+    return fieldTextarea.focus();
+    // if (fieldTextarea.blur()) {
+    //   console.log('SSSSSs');
+    //   event.preventDefault();
+    //   // fieldTextarea.focus();
+    // }
   });
-
 
   // function keyDisActive() {
   document.addEventListener('keyup', (event) => {
-    console.log(event.code);
+    // console.log(event.code);
     const btnKeys = document.querySelectorAll('.key');
     for (let i = 0; i < btnKeys.length; i += 1) {
       if (event.code === data[i].code) {
@@ -255,6 +273,7 @@ async function btnActive() {
       }
     }
   });
+  fieldTextarea.focus();
 // }
 //   keyDisActive();
   // setInterval(keyDisActive, 1000);
@@ -270,7 +289,6 @@ async function clickButtons() {
     capsLock.addEventListener('mousedown', (event) => {
       const allKeys = document.querySelectorAll('.key');
       // console.log(event.target.innerText === 'caps lock' && (!capsLock.classList.contains('key_active')));
-      // console.log(capsLock.classList.contains('key_active'));
 
       for (let b = 0; b < allKeys.length; b += 1) {
       // if (event.target.innerText === 'caps lock') {
@@ -301,17 +319,20 @@ async function clickButtons() {
   keyboard.addEventListener('mousedown', (event) => {
     const btnClick = event.target.closest('.key');
     const allKeys = document.querySelectorAll('.key');
-    // console.log(fieldTextarea.focus());
-    // fieldTextarea.textContent.focus();
     console.log(btnClick.textContent);
     fieldTextarea.focus();
     fieldTextarea.selectionStart = fieldTextarea.value.length;
-    // console.log(fieldTextarea.textContent);
     // if (event.target.closest('.key_delete')) {
     if (btnClick.textContent === 'delete') {
       fieldTextarea.value = fieldTextarea.value.slice(0, -1);
     } else if (btnClick.textContent === 'tab') {
+      // fieldTextarea.focus();
       fieldTextarea.value += '\t';
+      // fieldTextarea.focus();
+    } else if (btnClick.textContent === 'return') {
+      fieldTextarea.value += '\r';
+      // console.log(btnClick.textContent);
+      // fieldTextarea.focus();
     } else {
       fieldTextarea.value += btnClick.innerText;
     }
@@ -339,6 +360,7 @@ async function clickButtons() {
     //   capsFunction();
     //   // btnClick.classList.toggle('key_active');
     // }
+    fieldTextarea.focus();
   });
 }
 clickButtons();
