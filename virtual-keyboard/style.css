@@ -152,13 +152,13 @@ body {
   width: 75px;
 }
 
-.key_shiftleft {
+.key_shift_left {
   justify-content: flex-start;
   padding-left: 10px;
   width: 99px;
 }
 
-.key_shiftright {
+.key_shift_right {
   justify-content: flex-end;
   padding-right: 10px;
   width: 98px;
