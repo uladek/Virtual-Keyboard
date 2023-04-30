@@ -396,7 +396,7 @@
     },
     {
         "code" : "Space",
-        "key" : " ",
+        "key" : "Space",
         "keyCode" : 32,
         "shiftEn" : " ",
         "nameEn" : " "

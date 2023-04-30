@@ -49,10 +49,13 @@ text-align: center;
   display: flex;
   flex-direction: column;
   padding: 4px 4px 4px 4px; 
+//   cursor: pointer;
 
     margin: 0 auto;
     box-shadow: inset 5px 5px 5px 0 #CFCFCF;
- 
+    /* inset 5px 5px 5px 0 rgba(255,255,255,0.5); */
+    /* box-shadow: inset 5px 5px 5px gold; */
+}
 
 .keyboard__row{
     margin: 0 ;
@@ -60,10 +63,14 @@ text-align: center;
     flex-direction: row;
     height: 20%;
     padding: 0;
+    // cursor: pointer;
+
+    // border: 1px solid #000000;
 }
 
 .keyboard__row_4{
     margin-left: 52px;
+    // cursor: pointer;
 }
 
 .key {
@@ -79,9 +86,7 @@ text-align: center;
     align-self: center;
     transition: 3s;
     line-height: 45px;
-    // transform: 3s;
-    // cursor: pointer !important;
-        // z-index: 20;
+ 
         cursor: pointer;
 
 }

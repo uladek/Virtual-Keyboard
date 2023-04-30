@@ -2,17 +2,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #c0c0c0;
   cursor: pointer;
-  /* display: flex;
-  justify-content: center; */
 }
 
 .centralizer {
   margin: 20px auto;
-  /* padding: 0 auto; */
-  /* max-width: 720px; */
   display: block;
   align-content: center;
-  /* justify-content: center; */
   flex-direction: column;
   cursor: pointer;
 }
@@ -25,17 +20,10 @@ body {
 
 .field-textarea {
   background: #ffffff;
-  /* position: absolute; */
-  /* resize: horizontal; */
   display: block;
   height: 200px;
   border: 1px solid #000000;
   border-radius: 9px;
-  /* min-width: 87%; */
-  /* width: 720px; */
-  /* width: inherit; */
-  /* width:87%; */
-  /* min-width: ; */
   max-width: 90%;
   min-width: 500px;
   box-shadow: 0 0 10px #ffffff;

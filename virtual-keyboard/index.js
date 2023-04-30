@@ -200,34 +200,52 @@ async function btnActive() {
 
   document.addEventListener('keydown', (event) => {
     // fieldTextarea.textContent += btnKeys[i].innerText;
-    console.log(event);
+    // console.log(event);
+  
+
 
     if (event.key === 'Tab') {
       event.preventDefault();
     }
     const btnKeys = document.querySelectorAll('.key');
+    const beforeKey = fieldTextarea.value.slice(0, fieldTextarea.selectionStart);
+    const afterKey = fieldTextarea.value.slice(fieldTextarea.selectionEnd);
     for (let i = 0; i < btnKeys.length; i += 1) {
       fieldTextarea.focus();
-      fieldTextarea.selectionStart = fieldTextarea.value.length;
+      // fieldTextarea.selectionStart = fieldTextarea.value.length;
+      // console.log(fieldTextarea.selectionStart);
       if (event.code === data[i].code) {
+        // console.log(event.code);
+        // console.log(data[i].code);
+        btnKeys[i].classList.add('key_active');
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
             el.innerText = (data[index].nameEn);
           });
-          btnKeys[i].classList.add('key_active');
         } else if (btnKeys[i].textContent === 'delete') {
-          // console.log(fieldTextarea.textContent);
-          return fieldTextarea.value.slice(0, -1);
-          // (fieldTextarea.value).toString.slice(0, -1);
-        } else if (btnKeys[i].textContent === 'tab') {
+          return fieldTextarea.value;
           // fieldTextarea.focus();
-          fieldTextarea.value += '\t';
-          // if (!fieldTextarea.focus()) {
-          //   fieldTextarea.focus();
-          // }
+          // return fieldTextarea.value.slice(0, -1);
+        } else if (btnKeys[i].textContent === 'tab') {
+          const tabKey = '\t';
+          fieldTextarea.value = beforeKey + tabKey + afterKey;
+          fieldTextarea.selectionEnd = beforeKey.length + 1;
+          fieldTextarea.focus();
         } else if (btnKeys[i].textContent === 'return') {
           return fieldTextarea.value;
         } else if (btnKeys[i].textContent === 'shift') {
+          const allKeys = document.querySelectorAll('.key');
+          // if (btnLeftShift.innerText === 'shift') {
+          allKeys.forEach((el, index) => {
+            el.innerText = data[index].shiftEn;
+          });
+          // }
+          return fieldTextarea.value;
+        } else if (btnKeys[i].textContent === 'control') {
+          return fieldTextarea.value;
+        } else if (btnKeys[i].textContent === 'option') {
+          return fieldTextarea.value;
+        } else if (btnKeys[i].textContent === 'command') {
           return fieldTextarea.value;
         } else {
           // fieldTextarea.focus();
@@ -246,12 +264,28 @@ async function btnActive() {
 
   // function keyDisActive() {
   document.addEventListener('keyup', (event) => {
+    console.log(event.key);
+
+    // const activeKey = document.querySelectorAll('.key_active');
+    // console.log(activeKey.length);
     const btnKeys = document.querySelectorAll('.key');
     for (let i = 0; i < btnKeys.length; i += 1) {
+      // console.log(event.key);
       if (event.code === data[i].code) {
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
             el.innerText = data[index].nameEn.toLowerCase();
+          });
+          btnKeys[i].classList.remove('key_active');
+        } else if (event.key === 'Shift') {
+          btnKeys.forEach((el, index) => {
+            el.innerText = data[index].nameEn.toLowerCase();
+          });
+          btnKeys[i].classList.remove('key_active');
+        } else if (event.key === 'Meta') {
+          // } else if (event.key === 'Meta' && event.key !== 'Meta') {
+          btnKeys.forEach((el) => {
+            el.classList.remove('key_active');
           });
           btnKeys[i].classList.remove('key_active');
         } else {
@@ -277,12 +311,6 @@ async function clickButtons() {
       const allKeys = document.querySelectorAll('.key');
       // console.log(event.target.innerText === 'caps lock' && (!capsLock.classList.contains('key_active')));
       for (let b = 0; b < allKeys.length; b += 1) {
-      // if (event.target.innerText === 'caps lock') {
-      //   btnClick.classList.add('key_active');
-      // } else {
-        if (!allKeys[b].classList.contains('key_active')) {
-          allKeys[b].classList.remove('key_active');
-        }
         capsLock.classList.toggle('key_active');
         // allKeys[b].classList.remove('key_active');
         // }
@@ -303,13 +331,14 @@ async function clickButtons() {
 
   function shiftFunction() {
     const btnShift = document.querySelectorAll('.key_shift');
-    // const btnClick = event.target.closest('.key_shift');
+
+
     btnShift.forEach((elShift) => {
       elShift.addEventListener('mousedown', () => {
         // const btnShiftClick = event.target.closest('.key_shift');
         const allKeys = document.querySelectorAll('.key');
         allKeys.forEach((el, index) => {
-          el.innerText = (data[index].shiftEn);
+          el.innerText = data[index].shiftEn;
         });
       });
     });
@@ -327,26 +356,50 @@ async function clickButtons() {
   shiftFunction();
 
   keyboard.addEventListener('mousedown', (event) => {
-    console.log(event);
+    console.log(event.target);
     const btnClick = event.target.closest('.key');
+    const btnSpace = event.target.closest('.key_space');
+    const beforeKey = fieldTextarea.value.slice(0, fieldTextarea.selectionStart);
+    const afterKey = fieldTextarea.value.slice(fieldTextarea.selectionEnd);
+
     const allKeys = document.querySelectorAll('.key');
-    // console.log(btnClick.textContent);
     fieldTextarea.focus();
-    fieldTextarea.selectionStart = fieldTextarea.value.length;
+
+    // fieldTextarea.selectionStart = fieldTextarea.value.length;
     // if (event.target.closest('.key_delete')) {
     if (btnClick.textContent === 'delete') {
-      fieldTextarea.value = fieldTextarea.value.slice(0, -1);
+
+      // let pos = beforeKey - 1;
+      fieldTextarea.value = beforeKey.slice(0, -1) + afterKey;
+      fieldTextarea.selectionEnd = beforeKey.slice(0, -1).length;
+      fieldTextarea.focus();
     } else if (btnClick.textContent === 'tab') {
-      fieldTextarea.value += '\t';
+      const tabKey = '\t';
+      fieldTextarea.value = beforeKey + tabKey + afterKey;
+      fieldTextarea.selectionEnd = beforeKey.length + 1;
+      fieldTextarea.focus();
+      // fieldTextarea.value += '\t';
     } else if (btnClick.textContent === 'caps lock') {
       fieldTextarea.focus();
     } else if (btnClick.textContent === 'return') {
-      fieldTextarea.value += '\r';
+      const returnKey = '\r';
+      fieldTextarea.value = beforeKey + returnKey + afterKey;
+      fieldTextarea.selectionEnd = beforeKey.length + 1;
+      fieldTextarea.focus();
     } else if (btnClick.textContent === 'shift') {
-      console.log('Shift!!!');
       shiftFunction();
+    } else if (btnClick.textContent === 'control') {
+      fieldTextarea.focus();
+    } else if (btnClick.textContent === 'option') {
+      fieldTextarea.focus();
+    } else if (btnClick.textContent === 'command') {
+      fieldTextarea.focus();
+    } else if (btnClick.textContent === ' ') {
+      fieldTextarea.value += ' ';
     } else {
-      fieldTextarea.value += btnClick.innerText;
+      fieldTextarea.value = beforeKey + btnClick.innerText + afterKey;
+      fieldTextarea.selectionEnd = beforeKey.length + 1;
+      fieldTextarea.focus();
     }
 
     if (event.target.innerText !== 'caps lock') {
@@ -356,11 +409,7 @@ async function clickButtons() {
         }
         btnClick.classList.add('key_active');
       }
-    //   // btnClick.classList.add('key_active');
     }
-    //  else if (event.target.innerText === 'caps lock') {
-    //   capsFunction();
-    // }
   });
 
   keyboard.addEventListener('mouseup', (event) => {
@@ -368,10 +417,6 @@ async function clickButtons() {
     if (event.target.innerText !== 'caps lock') {
       btnClick.classList.remove('key_active');
     }
-    // else if (event.target.innerText === 'caps lock') {
-    //   capsFunction();
-    //   // btnClick.classList.toggle('key_active');
-    // }
     fieldTextarea.focus();
   });
 }
