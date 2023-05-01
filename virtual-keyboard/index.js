@@ -194,23 +194,44 @@ async function getKeys() {
 }
 getKeys();
 
+const infoArea = document.createElement('div');
+infoArea.className = 'info-area';
+centralizer.append(infoArea);
+const pInfo = document.createElement('p');
+pInfo.className = 'info-area_p';
+pInfo.textContent = 'The keyboard was created in the MaxOS';
+infoArea.append(pInfo);
+const pInfoSwitch = document.createElement('p');
+pInfoSwitch.className = 'info-area_p';
+pInfoSwitch.textContent = 'To switch between languages press left opt + cmd';
+infoArea.append(pInfoSwitch);
+
 async function btnActive() {
   const res = await fetch('data.json');
   const data = await res.json();
 
   document.addEventListener('keydown', (event) => {
     // fieldTextarea.textContent += btnKeys[i].innerText;
-    // console.log(event);
-  
-
 
     if (event.key === 'Tab') {
       event.preventDefault();
+    }
+
+    // console.log(event.key);
+    // console.log(event.code);
+    if (event.code === 'AltLeft' && event.code === 'MetaLeft') {
+      console.log('lung');
     }
     const btnKeys = document.querySelectorAll('.key');
     const beforeKey = fieldTextarea.value.slice(0, fieldTextarea.selectionStart);
     const afterKey = fieldTextarea.value.slice(fieldTextarea.selectionEnd);
     for (let i = 0; i < btnKeys.length; i += 1) {
+      // console.log(btnKeys[i].textContent === 'command');
+
+    // console.log(event.code);
+    // if (event.code === 'Alt' && event.code === 'MetaLeft') {
+    //   console.log('lung');
+    // }
       fieldTextarea.focus();
       // fieldTextarea.selectionStart = fieldTextarea.value.length;
       // console.log(fieldTextarea.selectionStart);
@@ -220,7 +241,11 @@ async function btnActive() {
         btnKeys[i].classList.add('key_active');
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
-            el.innerText = (data[index].nameEn);
+            if (keyboard.classList.contains('lang')) {
+              el.innerText = (data[index].nameBe);
+            } else {
+              el.innerText = (data[index].nameEn);
+            }
           });
         } else if (btnKeys[i].textContent === 'delete') {
           return fieldTextarea.value;
@@ -264,17 +289,20 @@ async function btnActive() {
 
   // function keyDisActive() {
   document.addEventListener('keyup', (event) => {
-    console.log(event.key);
-
     // const activeKey = document.querySelectorAll('.key_active');
     // console.log(activeKey.length);
     const btnKeys = document.querySelectorAll('.key');
     for (let i = 0; i < btnKeys.length; i += 1) {
-      // console.log(event.key);
       if (event.code === data[i].code) {
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
-            el.innerText = data[index].nameEn.toLowerCase();
+            console.log(keyboard.classList.contains('lang'));
+            if (keyboard.classList.contains('lang') && (event.key === 'CapsLock')) {
+              console.log('GGGG');
+              el.innerText = data[index].nameBe.toLowerCase();
+            } else {
+              el.innerText = data[index].nameEn.toLowerCase();
+            }
           });
           btnKeys[i].classList.remove('key_active');
         } else if (event.key === 'Shift') {
@@ -284,9 +312,9 @@ async function btnActive() {
           btnKeys[i].classList.remove('key_active');
         } else if (event.key === 'Meta') {
           // } else if (event.key === 'Meta' && event.key !== 'Meta') {
-          btnKeys.forEach((el) => {
-            el.classList.remove('key_active');
-          });
+          // btnKeys.forEach((el) => {
+          //   el.classList.remove('key_active');
+          // });
           btnKeys[i].classList.remove('key_active');
         } else {
           btnKeys[i].classList.remove('key_active');
@@ -301,6 +329,57 @@ async function btnActive() {
 }
 btnActive();
 
+async function switchLang() {
+  const res = await fetch('data.json');
+  const data = await res.json();
+  const btnKeys = document.querySelectorAll('.key');
+  const capsKeys = document.querySelector('.key_capslock');
+  // const altLeft = document.querySelector('.key_optionleft');
+  // const metaLeft = document.querySelector('.key_comandleft');
+
+  document.addEventListener('keydown', (event) => {
+    // console.log(eventAlt.code);
+    if (event.code === 'AltLeft' && !keyboard.classList.contains('lang')) {
+      document.addEventListener('keyup', (event2) => {
+        if (event2.code === 'MetaLeft') {
+          if (capsKeys.classList.contains('key_active')) {
+            keyboard.classList.add('lang');
+            btnKeys.forEach((el, index) => {
+              el.innerText = data[index].nameBe;
+            });
+          } else {
+          console.log('be');
+          console.log(event2.code);
+          keyboard.classList.add('lang');
+          btnKeys.forEach((el, index) => {
+            el.innerText = data[index].nameBe.toLowerCase();
+          });
+        }
+        }
+      });
+    } else if (event.code === 'AltLeft' && keyboard.classList.contains('lang')) {
+      document.addEventListener('keyup', (event2) => {
+        if (event2.code === 'MetaLeft') {
+          if (capsKeys.classList.contains('key_active')) {
+            keyboard.classList.remove('lang');
+          btnKeys.forEach((el, index) => {
+            el.innerText = data[index].nameEn;
+          });
+          } else {
+          // console.log('en');
+          // console.log(event2.code);
+          keyboard.classList.remove('lang');
+          btnKeys.forEach((el, index) => {
+            el.innerText = data[index].nameEn.toLowerCase();
+          });
+        }
+        }
+      });
+    }
+  });
+}
+switchLang();
+
 async function clickButtons() {
   const res = await fetch('data.json');
   const data = await res.json();
@@ -309,20 +388,28 @@ async function clickButtons() {
   function capsFunction() {
     capsLock.addEventListener('mousedown', (event) => {
       const allKeys = document.querySelectorAll('.key');
-      // console.log(event.target.innerText === 'caps lock' && (!capsLock.classList.contains('key_active')));
       for (let b = 0; b < allKeys.length; b += 1) {
         capsLock.classList.toggle('key_active');
         // allKeys[b].classList.remove('key_active');
         // }
-        if (event.target.innerText === 'caps lock' && (capsLock.classList.contains('key_active'))) {
+        if (event.target.innerText === 'caps lock' && capsLock.classList.contains('key_active')) {
           allKeys.forEach((el, index) => {
-            el.innerText = (data[index].nameEn);
+            if (keyboard.classList.contains('lang')) {
+              el.innerText = (data[index].nameBe);
+            } else {
+              el.innerText = (data[index].nameEn);
+            }
           });
         } else if (event.target.innerText === 'caps lock' && !capsLock.classList.contains('key_active')) {
           allKeys.forEach((el, index) => {
-            el.innerText = (data[index].nameEn).toLowerCase();
+            if (keyboard.classList.contains('lang')) {
+              el.innerText = data[index].nameBe.toLowerCase();
+            } else {
+              el.innerText = data[index].nameEn.toLowerCase();
+            }
           });
           // return fieldTextarea.focus();
+          // capsLock.classList.contains('key_active')))
         }
       }
     });
@@ -358,7 +445,7 @@ async function clickButtons() {
   keyboard.addEventListener('mousedown', (event) => {
     console.log(event.target);
     const btnClick = event.target.closest('.key');
-    const btnSpace = event.target.closest('.key_space');
+    // const btnSpace = event.target.closest('.key_space');
     const beforeKey = fieldTextarea.value.slice(0, fieldTextarea.selectionStart);
     const afterKey = fieldTextarea.value.slice(fieldTextarea.selectionEnd);
 
@@ -368,8 +455,7 @@ async function clickButtons() {
     // fieldTextarea.selectionStart = fieldTextarea.value.length;
     // if (event.target.closest('.key_delete')) {
     if (btnClick.textContent === 'delete') {
-
-      // let pos = beforeKey - 1;
+    // let pos = beforeKey - 1;
       fieldTextarea.value = beforeKey.slice(0, -1) + afterKey;
       fieldTextarea.selectionEnd = beforeKey.slice(0, -1).length;
       fieldTextarea.focus();

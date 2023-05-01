@@ -31,12 +31,29 @@ body {
   margin: 30px auto;
 }
 
+.info-area {
+  display: block;
+  height: 200px;
+  border: 0.11px solid #000000;
+  border-radius: 9px;
+  max-width: 40%;
+  min-width: 380px;
+  box-shadow: inset 5px 5px 5px 0 #CFCFCF;
+  padding: 5px;
+  margin: 30px auto;
+}
+
+.info-area_p {
+  text-align: center;
+}
+
 .keyboard {
   height: 240px;
   border: 0.1px solid #000000;
   border-radius: 9px;
   /* max-width: 90%; */
   max-width: 690px;
+  min-width: 650px;
   /* width:100%; */
   display: flex;
   flex-direction: column;
