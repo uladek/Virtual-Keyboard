@@ -161,6 +161,8 @@ async function getKeys() {
   const keyArrowLeft = document.createElement('div');
   keyArrowLeft.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowleft';
   row4.append(keyArrowLeft);
+  keyArrowLeft.innerText = String.fromCharCode(data[59].nameEn);
+  // keyArrowLeft.innerText = data[59].nameEn;
 
   const wrapperUpDown = document.createElement('div');
   wrapperUpDown.className = 'wrapper-up-down';
@@ -169,13 +171,17 @@ async function getKeys() {
   const keyArrowUp = document.createElement('div');
   keyArrowUp.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowup';
   wrapperUpDown.append(keyArrowUp);
+  keyArrowUp.innerText = String.fromCharCode(data[60].nameEn);
+
   const keyArrowDown = document.createElement('div');
   keyArrowDown.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowdown';
   wrapperUpDown.append(keyArrowDown);
+  keyArrowDown.innerText = String.fromCharCode(data[61].nameEn);
 
   const keyArrowRight = document.createElement('div');
   keyArrowRight.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowright';
   row4.append(keyArrowRight);
+  keyArrowRight.innerText = String.fromCharCode(data[62].nameEn);
 }
 getKeys();
 
@@ -212,9 +218,17 @@ async function btnActive() {
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
             if (keyboard.classList.contains('lang')) {
-              el.innerText = (data[index].nameBe);
-            } else {
-              el.innerText = (data[index].nameEn);
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameBe);
+              } else {
+                el.innerText = (data[index].nameBe);
+              }
+            } else if (!keyboard.classList.contains('lang')) {
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameEn);
+              } else {
+                el.innerText = (data[index].nameEn);
+              }
             }
           });
         } else if (btnKeys[i].textContent === 'delete') {
@@ -229,7 +243,7 @@ async function btnActive() {
         } else if (btnKeys[i].textContent === 'shift') {
           const allKeys = document.querySelectorAll('.key');
           allKeys.forEach((el, index) => {
-            if (keyboard.classList.contains('lang')) {
+            if (keyboard.classList.contains('lang')) { 
               el.innerText = data[index].shiftBe;
             } else {
               el.innerText = data[index].shiftEn;
@@ -264,10 +278,17 @@ async function btnActive() {
           btnKeys.forEach((el, index) => {
             console.log(keyboard.classList.contains('lang'));
             if (keyboard.classList.contains('lang') && (event.key === 'CapsLock')) {
-              console.log('GGGG');
-              el.innerText = data[index].nameBe.toLowerCase();
-            } else {
-              el.innerText = data[index].nameEn.toLowerCase();
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameBe);
+              } else {
+                el.innerText = data[index].nameBe.toLowerCase();
+              }
+            } else if (!keyboard.classList.contains('lang') && (event.key === 'CapsLock')) {
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameEn);
+              } else {
+                el.innerText = data[index].nameEn.toLowerCase();
+              }
             }
           });
           btnKeys[i].classList.remove('key_active');
@@ -308,8 +329,6 @@ const switchLang = async (lang) => {
   const btnKeys = document.querySelectorAll('.key');
   const capsKeys = document.querySelector('.key_capslock');
 
-
-  // const lang = btnKeys.forEach((el) => el.value);
   document.addEventListener('keydown', (event) => {
     if (event.code === 'AltLeft' && !keyboard.classList.contains('lang')) {
       document.addEventListener('keyup', (event2) => {
@@ -317,13 +336,20 @@ const switchLang = async (lang) => {
           if (capsKeys.classList.contains('key_active')) {
             keyboard.classList.add('lang');
             btnKeys.forEach((el, index) => {
-              el.innerText = data[index].nameBe;
-              // lang = el.innerText;
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameBe);
+              } else {
+                el.innerText = data[index].nameBe;
+              }
             });
           } else {
             keyboard.classList.add('lang');
             btnKeys.forEach((el, index) => {
-              el.innerText = data[index].nameBe.toLowerCase();
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameBe);
+              } else {
+                el.innerText = data[index].nameBe.toLowerCase();
+              }
             });
           }
         }
@@ -334,12 +360,20 @@ const switchLang = async (lang) => {
           if (capsKeys.classList.contains('key_active')) {
             keyboard.classList.remove('lang');
             btnKeys.forEach((el, index) => {
-              el.innerText = data[index].nameEn;
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameEe);
+              } else {
+                el.innerText = data[index].nameEn;
+              }
             });
           } else {
             keyboard.classList.remove('lang');
             btnKeys.forEach((el, index) => {
-              el.innerText = data[index].nameEn.toLowerCase();
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameEn);
+              } else {
+                el.innerText = data[index].nameEn.toLowerCase();
+              }
             });
           }
         }
@@ -354,7 +388,6 @@ const switchLang = async (lang) => {
 switchLang();
 console.log(switchLang.value);
 // // localStorage.setItem('lang', lang);
-
 
 // function setLocalStorage() {
 //   if (keyboard.classList.contains('lang')) {
@@ -389,17 +422,33 @@ async function clickButtons() {
         if (event.target.innerText === 'caps lock' && capsLock.classList.contains('key_active')) {
           allKeys.forEach((el, index) => {
             if (keyboard.classList.contains('lang')) {
-              el.innerText = (data[index].nameBe);
-            } else {
-              el.innerText = (data[index].nameEn);
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameBe);
+              } else {
+                el.innerText = (data[index].nameBe);
+              }
+            } else if (!keyboard.classList.contains('lang')) {
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameEn);
+              } else {
+                el.innerText = (data[index].nameEn);
+              }
             }
           });
         } else if (event.target.innerText === 'caps lock' && !capsLock.classList.contains('key_active')) {
           allKeys.forEach((el, index) => {
             if (keyboard.classList.contains('lang')) {
-              el.innerText = data[index].nameBe.toLowerCase();
-            } else {
-              el.innerText = data[index].nameEn.toLowerCase();
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameBe);
+              } else {
+                el.innerText = data[index].nameBe.toLowerCase();
+              }
+            } else if (!keyboard.classList.contains('lang')) {
+              if (el.classList.contains('key_arrow')) {
+                el.innerText = String.fromCharCode(data[index].nameEn);
+              } else {
+                el.innerText = data[index].nameEn.toLowerCase();
+              }
             }
           });
           // return fieldTextarea.focus();

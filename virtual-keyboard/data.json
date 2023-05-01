@@ -538,36 +538,36 @@
         "code" : "ArrowLeft",
         "key" : "ArrowLeft",
         "keyCode" : 37,
-        "nameBe" : "",
-        "shiftBe" : "",
-        "shiftEn" : "",
-        "nameEn" : ""
+        "nameBe" : "9664",
+        "shiftBe" : "9664",
+        "shiftEn" : "9664",
+        "nameEn" : "9664"
     },
     {
         "code" : "ArrowUp",
         "key" : "ArrowUp",
-        "nameBe" : "",
-        "shiftBe" : "",
         "keyCode" : 38,
-        "shiftEn" : "",
-        "nameEn" : ""
+        "nameBe" : "9650",
+        "shiftBe" : "9650",
+        "shiftEn" : "9650",
+        "nameEn" : "9650"
     },
     {
         "code" : "ArrowDown",
         "key" : "ArrowDown",
         "keyCode" : 40,
-        "nameBe" : "",
-        "shiftBe" : "",
-        "shiftEn" : "",
-        "nameEn" : ""
+        "nameBe" : "9660",
+        "shiftBe" : "9660",
+        "shiftEn" : "9660",
+        "nameEn" : "9660"
     },
     {
         "code" : "ArrowRight",
         "key" : "ArrowRight",
         "keyCode" : 39,
-        "nameBe" : "",
-        "shiftBe" : "",
-        "shiftEn" : "",
-        "nameEn" : ""
+        "nameBe" : "9658",
+        "shiftBe" : "9658",
+        "shiftEn" : "9658",
+        "nameEn" : "9658"
     }
 ]

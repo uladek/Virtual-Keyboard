@@ -185,18 +185,13 @@ body {
 }
 
 .key_arrow {
-  padding: 0;
+  padding: 4px 20px;
   width: 43px;
   height: 21px;
   align-self: flex-end;
   margin-bottom: 2px;
-  background-position: center;
-  background-size: 25%;
-  background-repeat: no-repeat;
-}
-
-.key_arrowleft {
-  background-image: url("./assets/svg/left.svg");
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .wrapper-up-down {

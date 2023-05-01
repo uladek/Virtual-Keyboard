@@ -200,19 +200,22 @@ text-align: center;
 }
 
 .key_arrow{
-    padding: 0;
+    padding: 4px 20px;
     width: 43px;
     height: 21px;
     align-self:flex-end;
     margin-bottom: 2px;
-    background-position: center;
-    background-size: 25%;
-    background-repeat: no-repeat;
+    text-align: center;
+    // background-position: center;
+    // background-size: 25%;
+    // background-repeat: no-repeat;
+    // color:#ffffff;
+    box-sizing: border-box;
   
 }
 
 .key_arrowleft {
-    background-image: url('./assets/svg/left.svg');
+    // background-image: url('./assets/svg/left.svg');
     
 }
 
