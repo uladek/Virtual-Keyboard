@@ -1,4 +1,4 @@
-// const allKeys = document.querySelectorAll('.key');
+const allOfKeys = document.querySelectorAll('.key');
 
 const centralizer = document.createElement('div');
 centralizer.className = 'centralizer';
@@ -22,13 +22,6 @@ setFocus();
 const keyboard = document.createElement('div');
 keyboard.className = 'keyboard';
 centralizer.append(keyboard);
-// const r0git = [27, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123]; // +кнопка питания??
-// // const rowArr0 = ['Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'];
-// const r1 = [96, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 45, 61, 'Backspace']; // + delete(backspace)
-// const r2 = [9, 81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221, 220];
-// const r3 = [20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222, 13];
-// const r4 = [16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 16];
-// const r5 = [17, 18, 91, 32, 93, 18, 37, 38, 40, 39]; // + Fn last 4 стрелки
 
 async function getKeys() {
   const res = await fetch('data.json');
@@ -45,8 +38,6 @@ async function getKeys() {
       const keyboardKey = document.createElement('div');
       keyboardKey.className = 'keyboard__key keyboard__key_row0 key';
       keyboardKey.data = rowArr0[i].keyCode;
-      // keyboardKey.dataset.keycode = rowArr0[i].keyCode;
-      // console.log(rowArr1[i].key);
       keyboardKey.innerText = rowArr0[i].nameEn;
       fragment.append(keyboardKey);
     }
@@ -57,7 +48,6 @@ async function getKeys() {
   const deleteKey = document.createElement('div');
   deleteKey.className = 'keyboard__key keyboard__key_row0 key key_plus key_delete';
   deleteKey.innerText = data[13].nameEn;
-  // deleteKey.innerText = 'delete';
 
   row0.append(deleteKey);
 
@@ -67,13 +57,11 @@ async function getKeys() {
   keyboard.append(row1);
 
   function getRow1() {
-    // console.log(data);
     const fragment = new DocumentFragment();
     for (let i = 0; i < rowArr1.length; i += 1) {
       const keyboardKey = document.createElement('div');
       keyboardKey.className = 'keyboard__key keyboard__key_row1 key key_letter';
       keyboardKey.innerText = rowArr1[i].nameEn.toLowerCase();
-      // keyboardKey.style.cursor = 'pointer';
       fragment.append(keyboardKey);
     }
     return fragment;
@@ -136,7 +124,6 @@ async function getKeys() {
   shiftRightkKey.innerText = data[52].nameEn.toLowerCase();
   row3.append(shiftRightkKey);
 
-  // const rowArr4 = data.slice(53, 59);
   const row4 = document.createElement('div');
   row4.className = 'keyboard__row keyboard__row_4';
   keyboard.append(row4);
@@ -173,7 +160,6 @@ async function getKeys() {
 
   const keyArrowLeft = document.createElement('div');
   keyArrowLeft.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowleft';
-  // keyArrowLeft.innerText = data[59].nameEn;
   row4.append(keyArrowLeft);
 
   const wrapperUpDown = document.createElement('div');
@@ -189,7 +175,6 @@ async function getKeys() {
 
   const keyArrowRight = document.createElement('div');
   keyArrowRight.className = 'keyboard__key keyboard__key_row4 key key_plus key_arrow key_arrowright';
-  // keyArrowLeft.innerText = data[59].nameEn;
   row4.append(keyArrowRight);
 }
 getKeys();
@@ -211,14 +196,9 @@ async function btnActive() {
   const data = await res.json();
 
   document.addEventListener('keydown', (event) => {
-    // fieldTextarea.textContent += btnKeys[i].innerText;
-
     if (event.key === 'Tab') {
       event.preventDefault();
     }
-
-    // console.log(event.key);
-    // console.log(event.code);
     if (event.code === 'AltLeft' && event.code === 'MetaLeft') {
       console.log('lung');
     }
@@ -226,18 +206,8 @@ async function btnActive() {
     const beforeKey = fieldTextarea.value.slice(0, fieldTextarea.selectionStart);
     const afterKey = fieldTextarea.value.slice(fieldTextarea.selectionEnd);
     for (let i = 0; i < btnKeys.length; i += 1) {
-      // console.log(btnKeys[i].textContent === 'command');
-
-    // console.log(event.code);
-    // if (event.code === 'Alt' && event.code === 'MetaLeft') {
-    //   console.log('lung');
-    // }
       fieldTextarea.focus();
-      // fieldTextarea.selectionStart = fieldTextarea.value.length;
-      // console.log(fieldTextarea.selectionStart);
       if (event.code === data[i].code) {
-        // console.log(event.code);
-        // console.log(data[i].code);
         btnKeys[i].classList.add('key_active');
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
@@ -249,8 +219,6 @@ async function btnActive() {
           });
         } else if (btnKeys[i].textContent === 'delete') {
           return fieldTextarea.value;
-          // fieldTextarea.focus();
-          // return fieldTextarea.value.slice(0, -1);
         } else if (btnKeys[i].textContent === 'tab') {
           const tabKey = '\t';
           fieldTextarea.value = beforeKey + tabKey + afterKey;
@@ -260,9 +228,12 @@ async function btnActive() {
           return fieldTextarea.value;
         } else if (btnKeys[i].textContent === 'shift') {
           const allKeys = document.querySelectorAll('.key');
-          // if (btnLeftShift.innerText === 'shift') {
           allKeys.forEach((el, index) => {
-            el.innerText = data[index].shiftEn;
+            if (keyboard.classList.contains('lang')) {
+              el.innerText = data[index].shiftBe;
+            } else {
+              el.innerText = data[index].shiftEn;
+            }
           });
           // }
           return fieldTextarea.value;
@@ -273,8 +244,6 @@ async function btnActive() {
         } else if (btnKeys[i].textContent === 'command') {
           return fieldTextarea.value;
         } else {
-          // fieldTextarea.focus();
-          // fieldTextarea.selectionStart = fieldTextarea.value.length;
           btnKeys[i].classList.add('key_active');
           if (fieldTextarea.textContent.length === 0) {
             fieldTextarea.value += btnKeys[i].innerText.slice(0, -1);
@@ -287,10 +256,7 @@ async function btnActive() {
     return fieldTextarea.focus();
   });
 
-  // function keyDisActive() {
   document.addEventListener('keyup', (event) => {
-    // const activeKey = document.querySelectorAll('.key_active');
-    // console.log(activeKey.length);
     const btnKeys = document.querySelectorAll('.key');
     for (let i = 0; i < btnKeys.length; i += 1) {
       if (event.code === data[i].code) {
@@ -306,9 +272,19 @@ async function btnActive() {
           });
           btnKeys[i].classList.remove('key_active');
         } else if (event.key === 'Shift') {
+          // btnKeys.forEach((el, index) => {
+          //   el.innerText = data[index].nameEn.toLowerCase();
+          // });
           btnKeys.forEach((el, index) => {
-            el.innerText = data[index].nameEn.toLowerCase();
+            if (keyboard.classList.contains('lang')) {
+              el.innerText = data[index].shiftBe.toLowerCase();
+            } else {
+              el.innerText = data[index].nameEn.toLowerCase();
+            }
           });
+
+
+
           btnKeys[i].classList.remove('key_active');
         } else if (event.key === 'Meta') {
           // } else if (event.key === 'Meta' && event.key !== 'Meta') {
@@ -323,22 +299,18 @@ async function btnActive() {
     }
   });
   fieldTextarea.focus();
-// }
-//   keyDisActive();
-  // setInterval(keyDisActive, 1000);
 }
 btnActive();
 
-async function switchLang() {
+const switchLang = async (lang) => {
   const res = await fetch('data.json');
   const data = await res.json();
   const btnKeys = document.querySelectorAll('.key');
   const capsKeys = document.querySelector('.key_capslock');
-  // const altLeft = document.querySelector('.key_optionleft');
-  // const metaLeft = document.querySelector('.key_comandleft');
 
+
+  // const lang = btnKeys.forEach((el) => el.value);
   document.addEventListener('keydown', (event) => {
-    // console.log(eventAlt.code);
     if (event.code === 'AltLeft' && !keyboard.classList.contains('lang')) {
       document.addEventListener('keyup', (event2) => {
         if (event2.code === 'MetaLeft') {
@@ -346,15 +318,14 @@ async function switchLang() {
             keyboard.classList.add('lang');
             btnKeys.forEach((el, index) => {
               el.innerText = data[index].nameBe;
+              // lang = el.innerText;
             });
           } else {
-          console.log('be');
-          console.log(event2.code);
-          keyboard.classList.add('lang');
-          btnKeys.forEach((el, index) => {
-            el.innerText = data[index].nameBe.toLowerCase();
-          });
-        }
+            keyboard.classList.add('lang');
+            btnKeys.forEach((el, index) => {
+              el.innerText = data[index].nameBe.toLowerCase();
+            });
+          }
         }
       });
     } else if (event.code === 'AltLeft' && keyboard.classList.contains('lang')) {
@@ -362,23 +333,47 @@ async function switchLang() {
         if (event2.code === 'MetaLeft') {
           if (capsKeys.classList.contains('key_active')) {
             keyboard.classList.remove('lang');
-          btnKeys.forEach((el, index) => {
-            el.innerText = data[index].nameEn;
-          });
+            btnKeys.forEach((el, index) => {
+              el.innerText = data[index].nameEn;
+            });
           } else {
-          // console.log('en');
-          // console.log(event2.code);
-          keyboard.classList.remove('lang');
-          btnKeys.forEach((el, index) => {
-            el.innerText = data[index].nameEn.toLowerCase();
-          });
-        }
+            keyboard.classList.remove('lang');
+            btnKeys.forEach((el, index) => {
+              el.innerText = data[index].nameEn.toLowerCase();
+            });
+          }
         }
       });
     }
+    return lang;
   });
-}
+  // console.log(event.target.value)
+  // localStorage.setItem('lang', el.innerText);
+  // console.log(lang);
+};
 switchLang();
+console.log(switchLang.value);
+// // localStorage.setItem('lang', lang);
+
+
+// function setLocalStorage() {
+//   if (keyboard.classList.contains('lang')) {
+//     localStorage.setItem('lang', lang);
+//   } else if (!keyboard.classList.contains('lang')) {
+//     localStorage.removeItem('lang');
+//   }
+//   // localStorage.removeItem('lang');
+// }
+// window.addEventListener('beforeunload', setLocalStorage);
+
+// function getLocalStorage() {
+//   if (localStorage.getItem('lang')) {
+//     localStorage.getItem('lang');
+//     switchLang();
+//     console.log('WHY');
+//   }
+// }
+// window.addEventListener('load', getLocalStorage);
 
 async function clickButtons() {
   const res = await fetch('data.json');
@@ -390,8 +385,7 @@ async function clickButtons() {
       const allKeys = document.querySelectorAll('.key');
       for (let b = 0; b < allKeys.length; b += 1) {
         capsLock.classList.toggle('key_active');
-        // allKeys[b].classList.remove('key_active');
-        // }
+     
         if (event.target.innerText === 'caps lock' && capsLock.classList.contains('key_active')) {
           allKeys.forEach((el, index) => {
             if (keyboard.classList.contains('lang')) {
@@ -419,13 +413,16 @@ async function clickButtons() {
   function shiftFunction() {
     const btnShift = document.querySelectorAll('.key_shift');
 
-
     btnShift.forEach((elShift) => {
       elShift.addEventListener('mousedown', () => {
         // const btnShiftClick = event.target.closest('.key_shift');
         const allKeys = document.querySelectorAll('.key');
         allKeys.forEach((el, index) => {
-          el.innerText = data[index].shiftEn;
+          if (keyboard.classList.contains('lang')) {
+            el.innerText = data[index].shiftBe;
+          } else {
+            el.innerText = data[index].shiftEn;
+          }
         });
       });
     });
@@ -434,7 +431,11 @@ async function clickButtons() {
       elShift.addEventListener('mouseup', () => {
         const allKeys = document.querySelectorAll('.key');
         allKeys.forEach((el, index) => {
-          el.innerText = data[index].nameEn.toLowerCase();
+          if (keyboard.classList.contains('lang')) {
+            el.innerText = data[index].shiftBe.toLowerCase();
+          } else {
+            el.innerText = data[index].nameEn.toLowerCase();
+          }
         });
       });
     });
@@ -507,3 +508,5 @@ async function clickButtons() {
   });
 }
 clickButtons();
+
+
