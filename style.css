@@ -35,7 +35,7 @@ body {
   height: 200px;
   border: 0.11px solid #000000;
   border-radius: 9px;
-  max-width: 25%;
+  max-width: 40%;
   min-width: 380px;
   box-shadow: inset 5px 5px 5px 0 #CFCFCF;
   padding: 5px;
@@ -81,9 +81,12 @@ body {
   margin: 0 2px;
   justify-content: center;
   align-self: center;
-  transition: 3s;
+  transition: 0.3s;
   line-height: 45px;
   cursor: pointer;
+}
+.key:hover {
+  background-color: #9a1616;
 }
 
 @keyframes btnanimation {

@@ -390,8 +390,6 @@ const switchLang = async (lang) => {
 };
 switchLang();
 
-
-
 async function clickButtons() {
   const res = await fetch('data.json');
   const data = await res.json();
