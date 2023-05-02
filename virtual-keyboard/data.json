@@ -4,6 +4,8 @@
         "code" : "Backquote",
         "key" : "`",
         "keyCode" : 192,
+        "nameBe" : "“",
+        "shiftBe" : "„",
         "shiftEn" : "~",
         "nameEn" : "`" 
     },
@@ -11,6 +13,8 @@
         "code" : "Digit1",
         "key" : "1",
         "keyCode" : 49,
+        "nameBe" : "1",
+        "shiftBe" : "!",
         "shiftEn": "!",
         "nameEn" : "1"
     },
@@ -18,6 +22,8 @@
         "code" : "Digit2",
         "key" : "2",
         "keyCode" : 50,
+        "nameBe" : "2",
+        "shiftBe" : "@",
         "shiftEn" : "@",
         "nameEn" : "2"
     },
@@ -25,6 +31,8 @@
         "code" : "Digit3",
         "key" : "3",
         "keyCode" : 51,
+        "nameBe" : "3",
+        "shiftBe" : "#",
         "shiftEn" : "#",
         "nameEn" : "3"
     },
@@ -32,6 +40,8 @@
         "code" : "Digit4",
         "key" : "4",
         "keyCode" : 52,
+        "nameBe" : "4",
+        "shiftBe" : "$",
         "shiftEn": "$",
         "nameEn" : "4"
     },
@@ -39,6 +49,8 @@
         "code" : "Digit5",
         "key" : "5",
         "keyCode" : 53,
+        "nameBe" : "5",
+        "shiftBe" : "%",
         "shiftEn": "%",
         "nameEn" : "5"
     },
@@ -46,6 +58,8 @@
         "code" : "Digit6",
         "key" : "6",
         "keyCode" : 54,
+        "nameBe" : "6",
+        "shiftBe" : "^",
         "shiftEn": "^",
         "nameEn" : "6"
     },
@@ -53,6 +67,8 @@
         "code" : "Digit7",
         "key" : "7",
         "keyCode" : 55,
+        "nameBe" : "7",
+        "shiftBe" : "&",
         "shiftEn": "&",
         "nameEn" : "7"
     },
@@ -60,6 +76,8 @@
         "code" : "Digit8",
         "key" : "8",
         "keyCode" : 56,
+        "nameBe" : "8",
+        "shiftBe" : "*",
         "shiftEn" : "*",
         "nameEn" : "8"
     },
@@ -67,6 +85,8 @@
         "code" : "Digit9",
         "key" : "9",
         "keyCode" : 57,
+        "nameBe" : "9",
+        "shiftBe" : "(",
         "shiftEn" : "(",
         "nameEn" : "9"
     },
@@ -74,6 +94,8 @@
         "code" : "Digit0",
         "key" : "0",
         "keyCode" : 48,
+        "nameBe" : "0",
+        "shiftBe" : ")",
         "shiftEn": ")",
         "nameEn" : "0"
     },
@@ -81,6 +103,8 @@
         "code" : "Minis",
         "key" : "-",
         "keyCode" : 189,
+        "nameBe" : "-",
+        "shiftBe" : "_",
         "shiftEn": "_",
         "nameEn" : "-"
     },
@@ -88,6 +112,8 @@
         "code" : "Equal",
         "key" : "=",
         "keyCode" : 187,
+        "nameBe" : "=",
+        "shiftBe" : "+",
         "shiftEn" : "+",
         "nameEn" : "="
     },
@@ -95,6 +121,8 @@
         "code" : "Backspace",
         "key" : "Backspace",
         "keyCode" : 8,
+        "nameBe" : "delete",
+        "shiftBe" : "delete",
         "shiftEn" : "delete",
         "nameEn" : "delete"
     },
@@ -102,6 +130,8 @@
         "code" : "Tab",
         "key" : "Tab",
         "keyCode" : 9,
+        "nameBe" : "tab",
+        "shiftBe" : "tab",
         "shiftEn" : "tab",
         "nameEn" : "tab"
     },
@@ -109,6 +139,8 @@
         "code" : "KeyQ",
         "key" : "q",
         "keyCode" : 81,
+        "nameBe" : "Й",
+        "shiftBe" : "Й",
         "shiftEn" : "Q",
         "nameEn" : "Q"
     },
@@ -116,6 +148,8 @@
         "code" : "KeyW",
         "key" : "w",
         "keyCode" : 87,
+        "nameBe" : "Ц",
+        "shiftBe" : "Ц",
         "shiftEn" : "W",
         "nameEn" : "W"
     },
@@ -123,6 +157,8 @@
         "code" : "KeyE",
         "key" : "e",
         "keyCode" : 69,
+        "nameBe" : "У",
+        "shiftBe" : "У",
         "shiftEn" : "E",
         "nameEn" : "E"
     },
@@ -130,6 +166,8 @@
         "code" : "KeyR",
         "key" : "r",
         "keyCode" : 82,
+        "nameBe" : "К",
+        "shiftBe" : "К",
         "shiftEn" : "R",
         "nameEn" : "R"
     },
@@ -137,6 +175,8 @@
         "code" : "KeyT",
         "key" : "t",
         "keyCode" : 84,
+        "nameBe" : "Е",
+        "shiftBe" : "Е",
         "shiftEn": "T",
         "nameEn" : "T"
     },
@@ -144,6 +184,8 @@
         "code" : "KeyY",
         "key" : "y",
         "keyCode" : 89,
+        "nameBe" : "Н",
+        "shiftBe" : "Н",
         "shiftEn" : "Y",
         "nameEn" : "Y"
     },
@@ -151,6 +193,8 @@
         "code" : "KeyU",
         "key" : "u",
         "keyCode" : 85,
+        "nameBe" : "Г",
+        "shiftBe" : "Г",
         "shiftEn" : "U",
         "nameEn" : "U"
     },
@@ -158,6 +202,8 @@
         "code" : "KeyI",
         "key" : "i",
         "keyCode" : 73,
+        "nameBe" : "Ш",
+        "shiftBe" : "Ш",
         "shiftEn" : "I",
         "nameEn" : "I"
     },
@@ -165,6 +211,8 @@
         "code" : "KeyO",
         "key" : "o",
         "keyCode" : 79,
+        "nameBe" : "Ў",
+        "shiftBe" : "Ў",
         "shiftEn" : "O",
         "nameEn" : "O"
     },
@@ -172,6 +220,8 @@
         "code" : "KeyP",
         "key" : "p",
         "keyCode" : 80,
+        "nameBe" : "З",
+        "shiftBe" : "З",
         "shiftEn" : "P",
         "nameEn" : "P"
     },
@@ -179,6 +229,8 @@
         "code" : "BracketLeft",
         "key" : "[",
         "keyCode" : 219,
+        "nameBe" : "Х",
+        "shiftBe" : "Х",
         "shiftEn" : "{",
         "nameEn" : "["
     },
@@ -186,6 +238,8 @@
         "code" : "BracketRight",
         "key" : "]",
         "keyCode" : 221,
+        "nameBe" : "'",
+        "shiftBe" : "'",
         "shiftEn" : "}",
         "nameEn"  : "]"
     },
@@ -193,6 +247,8 @@
         "code" : "Backslash",
         "key" : "\\",
         "keyCode"  : 220,
+        "nameBe" : "Ё",
+        "shiftBe" : "Ё",
         "shiftEn" : "|",
         "nameEn" : "\\"
     },
@@ -200,6 +256,8 @@
         "code" : "CapsLock",
         "key" : "CapsLock",
         "keyCode" : 20,
+        "nameBe" : "caps lock",
+        "shiftBe" : "caps lock",
         "shiftEn" : "caps lock",
         "nameEn" : "caps lock"
     },
@@ -207,6 +265,8 @@
         "code" : "KeyA",
         "key" : "a",
         "keyCode" : 65,
+        "nameBe" : "Ф",
+        "shiftBe" : "Ф",
         "shiftEn" : "A",
         "nameEn" : "A"
     },
@@ -214,6 +274,8 @@
         "code" : "KeyS",
         "key" : "s",
         "keyCode" : 83,
+        "nameBe" : "Ы",
+        "shiftBe" : "Ы",
         "shiftEn" : "S",
         "nameEn" : "S"
     },
@@ -221,6 +283,8 @@
         "code" : "KeyD",
         "key" : "d",
         "keyCode" : 68,
+        "nameBe" : "В",
+        "shiftBe" : "В",
         "shiftEn" : "D",
         "nameEn" : "D"
     },
@@ -228,6 +292,8 @@
         "code" : "KeyF",
         "key" : "f",
         "keyCode"  : 70,
+        "nameBe" : "А",
+        "shiftBe" : "А",
         "shiftEn" : "F",
         "nameEn" : "F"
     },
@@ -235,6 +301,8 @@
         "code" : "KeyG",
         "key" : "g",
         "keyCode" : 71,
+        "nameBe" : "П",
+        "shiftBe" : "П",
         "shiftEn" : "G",
         "nameEn"  : "G"
     },
@@ -242,6 +310,8 @@
         "code" : "KeyH",
         "key" : "h",
         "keyCode"  : 72,
+        "nameBe" : "Р",
+        "shiftBe" : "Р",
         "shiftEn" : "H",
         "nameEn" : "H"
     },
@@ -249,6 +319,8 @@
         "code" : "KeyJ",
         "key" : "j",
         "keyCode" : 74,
+        "nameBe" : "О",
+        "shiftBe" : "О",
         "shiftEn" : "I",
         "nameEn"  : "J"
     },
@@ -256,6 +328,8 @@
         "code" : "KeyK",
         "key" : "k",
         "keyCode" : 75,
+        "nameBe" : "Л",
+        "shiftBe" : "Л",
         "shiftEn" : "K",
         "nameEn" : "K"
     },
@@ -263,6 +337,8 @@
         "code" : "KeyL",
         "key" : "l",
         "keyCode" : 76,
+        "nameBe" : "Д",
+        "shiftBe" : "Д",
         "shiftEn" : "L",
         "nameEn" : "L"
     },
@@ -270,6 +346,8 @@
         "code" : "Semicolon",
         "key" : ";",
         "keyCode" : 186,
+        "nameBe" : "Ж",
+        "shiftBe" : "Ж",
         "shiftEn" : ":",
         "nameEn"  : ";"
     },
@@ -277,6 +355,8 @@
         "code" : "Quote",
         "key" : "'",
         "keyCode" : 222,
+        "nameBe" : "Э",
+        "shiftBe" : "Э",
         "shiftEn" : "\"",
         "nameEn" : "'"
     },
@@ -284,6 +364,8 @@
         "code" : "Enter",
         "key" : "Enter",
         "keyCode" : 13,
+        "nameBe" : "return",
+        "shiftBe" : "return",
         "shiftEn" : "return",
         "nameEn" : "return"
     },
@@ -291,6 +373,8 @@
         "code" : "ShiftLeft",
         "key" : "Shift",
         "keyCode" : 16,
+        "nameBe" : "shift",
+        "shiftBe" : "shift",
         "shiftEn" : "shift",
         "nameEn" : "shift",
         "location" : 1
@@ -299,6 +383,8 @@
         "code" : "KeyZ",
         "key" : "z",
         "keyCode" : 90,
+        "nameBe" : "Я",
+        "shiftBe" : "Я",
         "shiftEn" : "Z",
         "nameEn"  : "Z"
     },
@@ -306,12 +392,16 @@
         "code" : "KeyX",
         "key" : "x",
         "keyCode" : 88,
+        "nameBe" : "Ч",
+        "shiftBe" : "Ч",
         "shiftEn" : "X",
         "nameEn"  : "X"
     }, {
         "code" : "KeyC",
         "key" : "c",
         "keyCode" : 67,
+        "nameBe" : "С",
+        "shiftBe" : "С",
         "shiftEn" : "C",
         "nameEn"  : "C"
     },
@@ -319,6 +409,8 @@
         "code" : "KeyV",
         "key" : "v",
         "keyCode" : 86,
+        "nameBe" : "М",
+        "shiftBe" : "М",
         "shiftEn" : "V",
         "nameEn"  : "V"
     },
@@ -326,6 +418,8 @@
         "code" : "KeyB",
         "key" : "b",
         "keyCode" : 66,
+        "nameBe" : "І",
+        "shiftBe" : "І",
         "shiftEn" : "B",
         "nameEn"  : "B"
     },
@@ -333,6 +427,8 @@
         "code" : "KeyN",
         "key" : "n",
         "keyCode" : 78,
+        "nameBe" : "Т",
+        "shiftBe" : "Т",
         "shiftEn" : "N",
         "nameEn"  : "N"
     },
@@ -340,6 +436,8 @@
         "code" : "KeyM",
         "key" : "m",
         "keyCode" : 77,
+        "nameBe" : "Ь",
+        "shiftBe" : "Ь",
         "shiftEn" : "M",
         "nameEn"  : "M"
     },
@@ -347,6 +445,8 @@
         "code" : "Comma",
         "key" : ",",
         "keyCode" : 188,
+        "nameBe" : "Б",
+        "shiftBe" : "Б",
         "shiftEn" : "<",
         "nameEn" : ","
     },
@@ -354,6 +454,8 @@
         "code" : "Period",
         "key" : ".",
         "keyCode" : 190,
+        "nameBe" : "Ю",
+        "shiftBe" : "Ю",
         "shiftEn" : ">",
         "nameEn"  : "."
     },
@@ -361,6 +463,8 @@
         "code" : "Slash",
         "key" : "/",
         "keyCode" : 191,
+        "nameBe" : "?",
+        "shiftBe" : "?",
         "shiftEn" : "?",
         "nameEn" : "/"
     },
@@ -368,6 +472,8 @@
         "code" : "ShiftRight",
         "key" : "Shift",
         "keyCode" : 16,
+        "nameBe" : "shift",
+        "shiftBe" : "shift",
         "shiftEn" : "shift",
         "nameEn" : "shift",
         "location" : 2
@@ -376,6 +482,8 @@
         "code" : "ControlLeft",
         "key" : "Control",
         "keyCode" : 17,
+        "nameBe" : "1",
+        "shiftBe" : "control",
         "shiftEn" : "control",
         "nameEn" : "control"
     },
@@ -383,6 +491,8 @@
         "code" : "AltLeft",
         "key" : "Alt",
         "keyCode" : 18,
+        "nameBe" : "option",
+        "shiftBe" : "option",
         "shiftEn" : "option",
         "nameEn" : "option",
         "location" : 1
@@ -391,6 +501,8 @@
         "code" : "MetaLeft",
         "key" : "Meta",
         "keyCode" : 91,
+        "nameBe" : "command",
+        "shiftBe" : "command",
         "shiftEn" : "command",
         "nameEn" : "command"
     },
@@ -398,6 +510,8 @@
         "code" : "Space",
         "key" : "Space",
         "keyCode" : 32,
+        "nameBe" : " ",
+        "shiftBe" : " ",
         "shiftEn" : " ",
         "nameEn" : " "
     },
@@ -405,6 +519,8 @@
         "code" : "MetaRight",
         "key" : "Meta",
         "keyCode" : 93,
+        "nameBe" : "command",
+        "shiftBe" : "command",
         "shiftEn" : "command",
         "nameEn" : "command"
     },
@@ -412,36 +528,46 @@
         "code" : "AltRight",
         "key" : "Alt",
         "keyCode" : 18,
+        "nameBe" : "option",
         "shiftEn" : "option",
+        "shiftBe" : "option",
         "nameEn" : "option",
         "location" : 2
     },
     {
         "code" : "ArrowLeft",
         "key" : "ArrowLeft",
-        "shiftEn" : "",
         "keyCode" : 37,
-        "nameEn" : ""
+        "nameBe" : "9664",
+        "shiftBe" : "9664",
+        "shiftEn" : "9664",
+        "nameEn" : "9664"
     },
     {
         "code" : "ArrowUp",
         "key" : "ArrowUp",
-        "shiftEn" : "",
         "keyCode" : 38,
-        "nameEn" : ""
+        "nameBe" : "9650",
+        "shiftBe" : "9650",
+        "shiftEn" : "9650",
+        "nameEn" : "9650"
     },
     {
         "code" : "ArrowDown",
         "key" : "ArrowDown",
-        "shiftEn" : "",
         "keyCode" : 40,
-        "nameEn" : ""
+        "nameBe" : "9660",
+        "shiftBe" : "9660",
+        "shiftEn" : "9660",
+        "nameEn" : "9660"
     },
     {
         "code" : "ArrowRight",
         "key" : "ArrowRight",
-        "shiftEn" : "",
         "keyCode" : 39,
-        "nameEn" : ""
+        "nameBe" : "9658",
+        "shiftBe" : "9658",
+        "shiftEn" : "9658",
+        "nameEn" : "9658"
     }
 ]
