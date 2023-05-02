@@ -128,9 +128,6 @@ async function getKeys() {
   row4.className = 'keyboard__row keyboard__row_4';
   keyboard.append(row4);
 
-
-  
-
   const keyControl = document.createElement('div');
   keyControl.className = 'keyboard__key keyboard__key_row4 key key_plus key_control';
   keyControl.innerText = data[53].nameEn;
@@ -206,9 +203,9 @@ async function btnActive() {
     if (event.key === 'Tab') {
       event.preventDefault();
     }
-    // if (event.code === 'AltLeft' && event.code === 'MetaLeft') {
-    //   // console.log('lang');
-    // }
+    if (event.code === 'AltLeft' && event.code === 'MetaLeft') {
+      console.log('lung');
+    }
     const btnKeys = document.querySelectorAll('.key');
     const beforeKey = fieldTextarea.value.slice(0, fieldTextarea.selectionStart);
     const afterKey = fieldTextarea.value.slice(fieldTextarea.selectionEnd);
@@ -316,6 +313,8 @@ async function btnActive() {
               }
             }
           });
+
+
 
           btnKeys[i].classList.remove('key_active');
         } else if (event.key === 'Meta') {

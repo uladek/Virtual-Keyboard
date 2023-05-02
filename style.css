@@ -13,7 +13,6 @@ body {
 }
 
 .centralizer__title {
-  /* justify-content: center; */
   margin: 0 auto;
   text-align: center;
 }
@@ -36,7 +35,7 @@ body {
   height: 200px;
   border: 0.11px solid #000000;
   border-radius: 9px;
-  max-width: 40%;
+  max-width: 25%;
   min-width: 380px;
   box-shadow: inset 5px 5px 5px 0 #CFCFCF;
   padding: 5px;
@@ -51,17 +50,13 @@ body {
   height: 240px;
   border: 0.1px solid #000000;
   border-radius: 9px;
-  /* max-width: 90%; */
   max-width: 690px;
   min-width: 650px;
-  /* width:100%; */
   display: flex;
   flex-direction: column;
   padding: 4px 4px 4px 4px;
   margin: 0 auto;
   box-shadow: inset 5px 5px 5px 0 #CFCFCF;
-  /* inset 5px 5px 5px 0 rgba(255,255,255,0.5); */
-  /* box-shadow: inset 5px 5px 5px gold; */
 }
 
 .keyboard__row {
@@ -200,17 +195,4 @@ body {
   flex-direction: column;
   margin-top: 2px;
   margin-right: 4px;
-}
-
-.key_arrowup {
-  background-image: url("./assets/svg/up.svg");
-}
-
-.key_arrowdown {
-  background-image: url("./assets/svg/down.svg");
-}
-
-.key_arrowright {
-  background-image: url("./assets/svg/right.svg");
-  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

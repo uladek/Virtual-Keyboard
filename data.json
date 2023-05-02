@@ -469,12 +469,6 @@
         "nameEn" : "/"
     },
     {
-        "nameBe" : "shift",
-        "shiftBe" : "shift",
-        "shiftEn" : "shift",
-        "nameEn" : "shift"
-    },
-    {
         "code" : "ShiftRight",
         "key" : "Shift",
         "keyCode" : 16,
