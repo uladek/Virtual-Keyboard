@@ -318,10 +318,6 @@ async function btnActive() {
 
           btnKeys[i].classList.remove('key_active');
         } else if (event.key === 'Meta') {
-          // } else if (event.key === 'Meta' && event.key !== 'Meta') {
-          // btnKeys.forEach((el) => {
-          //   el.classList.remove('key_active');
-          // });
           btnKeys[i].classList.remove('key_active');
         } else {
           btnKeys[i].classList.remove('key_active');
@@ -393,27 +389,8 @@ const switchLang = async (lang) => {
   });
 };
 switchLang();
-console.log(switchLang.value);
-// // localStorage.setItem('lang', lang);
 
-// function setLocalStorage() {
-//   if (keyboard.classList.contains('lang')) {
-//     localStorage.setItem('lang', lang);
-//   } else if (!keyboard.classList.contains('lang')) {
-//     localStorage.removeItem('lang');
-//   }
-//   // localStorage.removeItem('lang');
-// }
-// window.addEventListener('beforeunload', setLocalStorage);
 
-// function getLocalStorage() {
-//   if (localStorage.getItem('lang')) {
-//     localStorage.getItem('lang');
-//     switchLang();
-//     console.log('WHY');
-//   }
-// }
-// window.addEventListener('load', getLocalStorage);
 
 async function clickButtons() {
   const res = await fetch('data.json');
@@ -550,7 +527,6 @@ async function clickButtons() {
       fieldTextarea.selectionEnd = beforeKey.length + 1;
       fieldTextarea.focus();
     }
-    // console.log((event.target.innerText !== 'caps lock'));
     if (event.target.innerText !== 'caps lock') {
       for (let b = 0; b < allKeys.length; b += 1) {
         if (!allKeys[b].classList.contains('key_active')) {
@@ -570,5 +546,3 @@ async function clickButtons() {
   });
 }
 clickButtons();
-
-
