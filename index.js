@@ -1,5 +1,3 @@
-const allOfKeys = document.querySelectorAll('.key');
-
 const centralizer = document.createElement('div');
 centralizer.className = 'centralizer';
 document.body.append(centralizer);
@@ -203,9 +201,7 @@ async function btnActive() {
     if (event.key === 'Tab') {
       event.preventDefault();
     }
-    if (event.code === 'AltLeft' && event.code === 'MetaLeft') {
-      console.log('lung');
-    }
+
     const btnKeys = document.querySelectorAll('.key');
     const beforeKey = fieldTextarea.value.slice(0, fieldTextarea.selectionStart);
     const afterKey = fieldTextarea.value.slice(fieldTextarea.selectionEnd);
@@ -281,7 +277,6 @@ async function btnActive() {
       if (event.code === data[i].code) {
         if (event.key === 'CapsLock') {
           btnKeys.forEach((el, index) => {
-            console.log(keyboard.classList.contains('lang'));
             if (keyboard.classList.contains('lang') && (event.key === 'CapsLock')) {
               if (el.classList.contains('key_arrow')) {
                 el.innerText = String.fromCharCode(data[index].nameBe);
@@ -313,9 +308,6 @@ async function btnActive() {
               }
             }
           });
-
-
-
           btnKeys[i].classList.remove('key_active');
         } else if (event.key === 'Meta') {
           btnKeys[i].classList.remove('key_active');
@@ -329,7 +321,7 @@ async function btnActive() {
 }
 btnActive();
 
-const switchLang = async (lang) => {
+const switchLang = async () => {
   const res = await fetch('data.json');
   const data = await res.json();
   const btnKeys = document.querySelectorAll('.key');
@@ -385,9 +377,9 @@ const switchLang = async (lang) => {
         }
       });
     }
-    return lang;
   });
 };
+
 switchLang();
 
 async function clickButtons() {
@@ -544,3 +536,5 @@ async function clickButtons() {
   });
 }
 clickButtons();
+
+
